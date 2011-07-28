@@ -1,0 +1,59 @@
+
+ZINA TODO
+
+====PROGRAMMEREN====
+== bij horn neerleggen:
+-- terugspringen naar portal
+-- ingetoetst nummer wissen
+-- record stop
+
+== opname ==
+- afteller in opname display
+- draw van wave eruit
+- tijdens recording: uitschakelen ringtone check
+- in recording: korte audio introductie 
+
+== presentatie ==
+- minuten verwerken in portal mode
+
+== interactie ==
+- text "toets # voor afbreken" in full video
+- audio bericht bij verkeerd nummer gedraaid
+- blokkeer toetsen wanneer beltoon dial is
+
+
+====INSTELLINGEN
+- volume full video zachter
+- lettertype van nummer in portal thumbs groter
+- drop shadow groter
+
+====WINDOWS
+- de hele waslijst met windows aanpassingen uitvoeren
+- taakbalk altijd grondig verbergen
+- alle meldingen windows uit
+- aan/uitknop zonder slaapstand
+- eventueel alias of toetsencombi om laptop af te sluiten
+
+====HARDWARE
+- extra magneetje in hoorn aan microfoonkant ivm verkeerd terugleggen?
++ uitgebreider geheugen test: geen effect op fps
+
+
+====INSTALLATIE
+- montage van 11 systemen in de kistjes
+
+
+====OTHER
+- alle code op google code
+- alle films op computers laden (harddisk)
+
+
+
+====EXTRA WERK====
+- video renderen voor kleine formaten
+- tekst inspreken voor opname audio
+- telefoonnummers verzinnen die passend zijn
+- systeem aan of uit zetten opname
+
+
+
