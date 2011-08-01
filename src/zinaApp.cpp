@@ -533,6 +533,7 @@ void zinaApp::setWindowTopMost() {
 		HWND hwnd = FindWindow( "GLUT", "" );   
 		//set the window always-on-top  
 		SetWindowPos( hwnd, HWND_TOPMOST, NULL, NULL, NULL, NULL, SWP_NOREPOSITION | SWP_NOSIZE );  
+		cout << "set window top most" << endl;
 	#endif  
 }
 	
