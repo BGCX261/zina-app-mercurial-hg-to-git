@@ -48,7 +48,7 @@ void zinaApp::setup(){
 	bHideCursor = true;
 	bPresentationMode = false;
 	appFrameRate = 0;
-	beySpacePressed = false;
+	bKeySpacePressed = false;
 	
 	//--gui-setup
 	setupGui();
