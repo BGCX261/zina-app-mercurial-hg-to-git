@@ -11,6 +11,11 @@
 #include "stdio.h"
 
 //-------------------------------------------------------------
+SampleRecorder::SampleRecorder(){
+
+}
+
+//-------------------------------------------------------------
 SampleRecorder::~SampleRecorder(){
 	if (bIsRecording) stopRecording();
 	
@@ -30,7 +35,9 @@ SampleRecorder::~SampleRecorder(){
 
 //--------------------------------------------------------------
 //void SampleRecorder::setup(ofxSoundStream & masterMAudio, SampleStreamPlayback & sampleStreamPlayback){	
-void SampleRecorder::setup(ofxSoundStream & masterMAudio){	
+void SampleRecorder::setup(ofxSoundStream & masterMAudio, int _recordingDuration){	
+	
+	recordingDuration = _recordingDuration;
 	
 	left = new float[BUFFER_SIZE];
 	right = new float[BUFFER_SIZE];
@@ -41,40 +48,52 @@ void SampleRecorder::setup(ofxSoundStream & masterMAudio){
 	}
 	
 	// create an empty buffer for device 1 (2 channels)
-	int mAudio_audioBufferInt = SAMPLE_RATE * RECORDING_DURATION * RECORDING_CHANNELS;
+	int mAudio_audioBufferInt = SAMPLE_RATE * recordingDuration * RECORDING_CHANNELS;
 	mAudio_audioBuffer = new UInt8[mAudio_audioBufferInt];
 	mAudio_audioBufferFloat = new float[mAudio_audioBufferInt];
+	
+	mAudio_bufferCounter = 0;
 	
 	bIsRecording = false;
 	
 	ofAddListener(masterMAudio.audioReceivedEvent, this, &SampleRecorder::audioInputListener);
 	//ofAddListener(sampleStreamPlayback.onNextStepEvent, this, &SampleRecorder::startRecording);
 	
+	//--font
 	recordingFont.loadFont("MONACO.TTF", 16, true, true, false);
+	recordingCountDownFont.loadFont("MONACO.TTF", 120, true, true, false);
+
 }
 
 //--------------------------------------------------------------
 void SampleRecorder::update(){
-	//
+	
 }
 
 //--------------------------------------------------------------
 void SampleRecorder::draw(){
 	
 	ofSetColor(255,255,255);
-	recordingFont.drawString("U heeft 60 seconden om een boodschap in te spreken" , 100, 240);
-	recordingFont.drawString("Toets # om de boodschap voortijdig te beeindigen" , 100, 280);
+	recordingFont.drawString("U heeft " + ofToString( recordingDuration ) + " seconden om een boodschap in te spreken" , 100, 130);
+	recordingFont.drawString("Toets # = stoppen" , 100, 500);
 	
-	/*
+	//--draw the count down
+	float currentTime = recordingDuration - (mAudio_bufferCounter * recordingDuration) / ((SAMPLE_RATE * recordingDuration) / BUFFER_SIZE);
+	recordingCountDownFont.drawString( ofToString(currentTime, 0) , 520, 350);
+	
 	// draw the left:
 	ofSetColor(100,100,100);
-	ofRect(100,100,256,200);
+	int waveX = 105;
+	int waveY = 200;
+	int waveW = 256;
+	int waveH = 200;
+	ofRect(waveX,waveY,waveW,waveH);
 	ofSetColor(255,255,255);
-	for (int i = 0; i < 256; i++){
-		ofLine(100+i,200,100+i,200+left[i]*100.0f);
+	for (int i = 0; i < waveW; i++){
+		ofLine(waveX+i, waveY + waveH/2, waveX+i, waveY + waveH/2 + left[i]*150.0);
 	}
 	
-	// draw the right:
+	/*/ draw the right:
 	ofSetColor(100,100,100);
 	ofRect(400,100,256,200);
 	ofSetColor(255,255,255);
@@ -84,17 +103,19 @@ void SampleRecorder::draw(){
 	*/
 	
 	// draw the recording
+	/*
 	int stepsSamples = 60;
 	ofSetColor(100,100,100);
 	ofRect(100, 340, 44100/stepsSamples,200);
-	for (int i = 0; i < RECORDING_DURATION * SAMPLE_RATE * RECORDING_CHANNELS; i+=stepsSamples){
+	for (int i = 0; i < recordingDuration * SAMPLE_RATE * RECORDING_CHANNELS; i+=stepsSamples){
 		
-		float xPos = 100+i/(RECORDING_DURATION * RECORDING_CHANNELS * stepsSamples);
+		float xPos = 100+i/(recordingDuration * RECORDING_CHANNELS * stepsSamples);
 		float offset = mAudio_audioBufferFloat[i]*100;
 		
 		ofSetColor(255,100,100);
 		ofLine(xPos,440,xPos,440+offset);
 	}
+	*/
 	
 	ofSetColor(255, 255, 255);
 }
@@ -117,7 +138,7 @@ void SampleRecorder::startRecording(){
 			right[i] = 0;
 		}
 		
-		for (int i = 0; i < RECORDING_DURATION * SAMPLE_RATE * RECORDING_CHANNELS; i++) {
+		for (int i = 0; i < recordingDuration * SAMPLE_RATE * RECORDING_CHANNELS; i++) {
 			mAudio_audioBufferFloat[i] = 0;
 			mAudio_audioBufferFloat[i] = 0;
 		}
@@ -150,7 +171,6 @@ void SampleRecorder::startRecording(){
 //--------------------------------------------------------------
 void SampleRecorder::stopRecording(){
 	
-	
 	if(bIsRecording){
 		bIsRecording = false;
 		
@@ -169,7 +189,7 @@ void SampleRecorder::audioInputListener(ofxAudioEventArgs &args){
 			
 	if(bIsRecording){
 		
-		int maxBuffers = SAMPLE_RATE * RECORDING_DURATION / args.bufferSize;
+		int maxBuffers = SAMPLE_RATE * recordingDuration / args.bufferSize;
 			
 		//if(args.deviceName == "M-Audio, Inc.: M-Audio Fast Track Pro USB"){
 			

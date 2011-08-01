@@ -19,7 +19,7 @@
 
 #define SAMPLE_RATE				44100
 #define BUFFER_SIZE				256
-#define RECORDING_DURATION		60
+//#define RECORDING_DURATION		120
 #define RECORDING_CHANNELS		2
 
 
@@ -28,10 +28,11 @@ class SampleRecorder : public ofBaseApp {
 	
 public:
 	
+	SampleRecorder();
 	~SampleRecorder();
 	
 	//void setup(ofxSoundStream & masterMAudio, SampleStreamPlayback & sampleStreamPlayback);
-	void setup(ofxSoundStream & masterMAudio);
+	void setup(ofxSoundStream & masterMAudio, int _recordingDuration);
 	void update();
 	void draw();
 	
@@ -53,6 +54,8 @@ private:
 	//-RECORDING-----------------
 	//ofxSoundStream mAudio; //using masterMAudio which is passed from testApp
 	
+	int recordingDuration;
+	
 	float * left;
 	float * right;
 	
@@ -73,6 +76,7 @@ private:
 	
 	//font
 	ofTrueTypeFont recordingFont;
+	ofTrueTypeFont recordingCountDownFont;
 
 };
 

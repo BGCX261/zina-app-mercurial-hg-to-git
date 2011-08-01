@@ -34,7 +34,7 @@ void AudioComposition::setup(int _stationId){
 		track.unloadSound();
 	}
 	
-	track.loadSoundWithTarget("sound/audioComposition/" + ofToString(stationId) + "_audioFile.wav", 1);
+	track.loadSoundWithTarget("sound/audioComposition/" + ofToString(stationId) + "_audioFile.aif", 1);
 	track.setMultiPlay(false);
 	track.setLoop(true);
 

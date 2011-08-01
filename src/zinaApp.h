@@ -7,7 +7,6 @@
 #include "EventArgs.h"
 #include "SerialDevice.h"
 #include "TonesPlayer.h"
-#include "ofxTimer.h"
 #include "KeypadController.h"
 #include "AudioComposition.h"
 #include "VideoController.h"

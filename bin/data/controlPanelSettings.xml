@@ -5,25 +5,25 @@
     <val_0>0.000000</val_0>
 </QUIT_APPLICATION>
 <VOLUME_THUMBS>
-    <val_0>12.222222</val_0>
+    <val_0>16.666668</val_0>
 </VOLUME_THUMBS>
 <VOLUME_FULL>
-    <val_0>80.000000</val_0>
+    <val_0>80.555557</val_0>
 </VOLUME_FULL>
 <VOLUME_AURA>
-    <val_0>0.800000</val_0>
+    <val_0>0.622222</val_0>
 </VOLUME_AURA>
 <VOLUME_DAIL_TONES>
     <val_0>0.100000</val_0>
 </VOLUME_DAIL_TONES>
 <STATION_ID>
-    <val_0>0.000000</val_0>
+    <val_0>2.000000</val_0>
 </STATION_ID>
 <SERIAL_ID>
     <val_0>5.000000</val_0>
 </SERIAL_ID>
 <VOLUME_DIAL_TONES>
-    <val_0>0.100000</val_0>
+    <val_0>0.133333</val_0>
 </VOLUME_DIAL_TONES>
 <DAIL_DELAY>
     <val_0>136.666672</val_0>
@@ -31,3 +31,6 @@
 <DIAL_DELAY>
     <val_0>50.277779</val_0>
 </DIAL_DELAY>
+<RECORDING_DURATION>
+    <val_0>60.333336</val_0>
+</RECORDING_DURATION>

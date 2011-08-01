@@ -99,7 +99,7 @@ void zinaApp::setup(){
 	//--voice recording------------------------------
 	voiceInputStream.setDeviceId( 0 );
 	voiceInputStream.setup( 0, 2, this, SOUND_INPUT_SAMPLERATE, SOUND_INPUT_BUFFERSIZE, 4 );
-	sampleRecorder.setup( voiceInputStream );
+	sampleRecorder.setup( voiceInputStream , gui.getValueI("RECORDING_DURATION", 0) );
 	ofAddListener(sampleRecorder.onFinishedRecordingEvent, this, &zinaApp::onFinishedRecordingEvent);
 	
 	//--fps------------------------------------------
@@ -254,8 +254,6 @@ void zinaApp::onFinishedRecordingEvent(EventArgsRecording & args) {
 //-- GUI -------------------------------------------------------
 //--------------------------------------------------------------
 void zinaApp::setupGui(){
-	
-	
 
 	//--gui--begin
 	ofxControlPanel::setBackgroundColor(simpleColor(30, 30, 60, 100));
@@ -283,21 +281,27 @@ void zinaApp::setupGui(){
 	
 	//--column
 	gui.setWhichColumn(2);
-	
-	gui.addSlider("Volume Thumbs", "VOLUME_THUMBS", 12.0, 0.0, 100.0, false);
-	ofAddListener(gui.createEventGroup("VOLUME_THUMBS"), this, &zinaApp::guiEventHandler);
-	
-	gui.addSlider("Volume Full", "VOLUME_FULL", 80.0, 0.0, 100.0, false);
+
+	gui.addSlider("Volume Full", "VOLUME_FULL", 80.0, 0.0, 100.0, true);
 	ofAddListener(gui.createEventGroup("VOLUME_FULL"), this, &zinaApp::guiEventHandler);
 	
-    gui.addSlider("Volume Aura", "VOLUME_AURA", 0.80, 0.0, 1.0, true);
+	gui.addSlider("Volume Thumbs", "VOLUME_THUMBS", 12.0, 0.0, 100.0, true);
+	ofAddListener(gui.createEventGroup("VOLUME_THUMBS"), this, &zinaApp::guiEventHandler);
+	
+    gui.addSlider("Volume Aura", "VOLUME_AURA", 0.80, 0.0, 1.0, false);
 	ofAddListener(gui.createEventGroup("VOLUME_AURA"), this, &zinaApp::guiEventHandler);
 	
-	gui.addSlider("Volume Dial Tones", "VOLUME_DIAL_TONES", 0.10, 0.0, 1.0, true);
+	gui.addSlider("Volume Dial Tones", "VOLUME_DIAL_TONES", 0.10, 0.0, 1.0, false);
 	ofAddListener(gui.createEventGroup("VOLUME_DIAL_TONES"), this, &zinaApp::guiEventHandler);
 	
-	gui.addSlider("DialDelay", "DIAL_DELAY", 50.0, 10.0, 300.0, false);
+	gui.addSlider("DialDelay", "DIAL_DELAY", 50.0, 10.0, 300.0, true);
 	ofAddListener(gui.createEventGroup("DIAL_DELAY"), this, &zinaApp::guiEventHandler);
+	
+	gui.addSlider("Recording Duration", "RECORDING_DURATION", 60.0, 30.0, 160.0, true);
+	ofAddListener(gui.createEventGroup("RECORDING_DURATION"), this, &zinaApp::guiEventHandler);
+	
+	//--column
+	gui.setWhichColumn(4);
 	
 	//--station id
 	for (int i =  0; i < dirListStations.listDir("stations/"); i++) {
@@ -307,9 +311,6 @@ void zinaApp::setupGui(){
 	gui.addTextDropDown("Select station ID", "STATION_ID", 0, vectorStationIds);
 	ofAddListener(gui.createEventGroup("STATION_ID"), this, &zinaApp::guiEventHandler);
 
-	//--column
-	gui.setWhichColumn(4);
-	
 	//--serial id
 	for (int i = 0; i < 16; i++) {
 		vectorSerialIds.push_back( "Serial Device " + ofToString(i) );
@@ -349,6 +350,12 @@ void zinaApp::guiEventHandler(guiCallbackData & data){
 	else if( data.isElement( "QUIT_APPLICATION" ) && data.getInt(0) == 1 ){
 		gui.setValueB("QUIT_APPLICATION", false);
 		this->quitApp();
+	}
+	
+	else if( data.isElement( "RECORDING_DURATION" ) ){
+		gui.saveSettings(); 
+		
+		// TODO: update to sampleRecorder.setup(): but not each move in gui, only when final selection is made: oterhwise lots of resets while dragging
 	}
 	
 	else if( data.isElement( "VOLUME_THUMBS" ) ){
@@ -498,6 +505,7 @@ void zinaApp::keyPressed(int key){
 		
 		if (key == 'g' || key == 'G') {
 			this->gui.toggleView();
+			this->toggleMouse();
 		}
 		
 		if (key == 'q' || key == 'Q') {
@@ -565,10 +573,6 @@ void zinaApp::setWindowTopMost() {
 void zinaApp::presentationModeOff(){
 
 	ofSetFullscreen(false);
-	ofShowCursor();
-	bHideCursor = false;
-	gui.show();
-
 	bPresentationMode = false;
 }
 
