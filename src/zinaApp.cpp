@@ -31,6 +31,15 @@ using namespace std;
  * - performance with video's 
  */
 
+/***************************
+ *
+ * TODO 2
+ * - always on top
+ *
+ *
+ *
+ */
+
 const string zinaApp::messageNumber = "0900123490";
 
 //--------------------------------------------------------------
@@ -56,6 +65,9 @@ void zinaApp::setup(){
 	//--arduino-----------------------------------
 	//serialDeviceId = 5; //TODO: from GUI (now: windows = 0, mac arne = 5, mac wouter = 10)
 	int newSerialId = gui.getValueI("SERIAL_ID", 0);
+	#ifdef TARGET_WIN32  
+		newSerialId = 0; //windows
+	#endif
 	arduino.setup(newSerialId, 9600);
 	cout << "SERIAL >>> setup device " << newSerialId << endl;
 	ofAddListener(arduino.onKeypadPressed, this, &zinaApp::onKeypadPressed);
@@ -104,7 +116,7 @@ void zinaApp::update(){
 
 	//--of
 	ofBackground(0, 0, 0);
-	setWindowTopMost();
+	//setWindowTopMost();
 
 	//--serial
 	arduino.update();
@@ -169,6 +181,18 @@ void zinaApp::onHornStatus(EventArgsHorn & args) {
 	if (args.bHornUp == false) {
 		loggerMain.log(OF_LOG_NOTICE, "%s", "ON HORN STATUS >> B HORN UP false");
 		audioComposition.play();
+		
+		//--go back to portal mode and stop recording
+		if ( ! sampleRecorder.bIsRecording ) {
+			if (videoController.getMode() == VideoController::VM_FULL) {
+				videoController.setMode(VideoController::VM_PORTAL);
+			}
+		} else {
+			sampleRecorder.stopRecording();
+		}
+		
+		//--keypad string to empty again
+		keypadController.reset();
 	}
 	
 	if (args.bHornUp == true) {
@@ -188,7 +212,7 @@ void zinaApp::onKeypadPressed(EventArgsKeypad & args) {
 		
 		keypadController.keypadPressed(args);
 	} else {
-		//--when recording, ignore the keypad except '#' to cancel recording
+		//--TODO: when recording, ignore the keypad except '#' to cancel recording
 		sampleRecorder.stopRecording();
 	}
 }
@@ -533,7 +557,7 @@ void zinaApp::setWindowTopMost() {
 		HWND hwnd = FindWindow( "GLUT", "" );   
 		//set the window always-on-top  
 		SetWindowPos( hwnd, HWND_TOPMOST, NULL, NULL, NULL, NULL, SWP_NOREPOSITION | SWP_NOSIZE );  
-		cout << "set window top most" << endl;
+		//cout << "set window top most" << endl;
 	#endif  
 }
 	

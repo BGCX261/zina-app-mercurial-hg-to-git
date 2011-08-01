@@ -144,6 +144,12 @@ void KeypadController::keypadPressed(EventArgsKeypad & args)
 	}
 	
 }
+
+//--------------------------------------------------------------
+void KeypadController::reset()
+{
+	keypadString.clear();
+}
 	
 //--------------------------------------------------------------
 void KeypadController::afterDialDelay()
