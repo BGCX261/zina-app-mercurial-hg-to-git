@@ -48,6 +48,7 @@ void zinaApp::setup(){
 	bHideCursor = true;
 	bPresentationMode = false;
 	appFrameRate = 0;
+	beySpacePressed = false;
 	
 	//--gui-setup
 	setupGui();
@@ -454,38 +455,47 @@ void zinaApp::onLogEventMain(EventArgsLogger & args) {
 	//cout << "ON_LOG_EVENT_MAIN >> " << args.sLog.c_str() << endl;
 }
 
-
-
 //--------------------------------------------------------------
 //-- INPUT HANDLERS KEY, MOUSE, WINDOW -------------------------
 //--------------------------------------------------------------
 void zinaApp::keyPressed(int key){
-
 	
-	if (key == 'f' || key == 'F') {
-		ofToggleFullscreen();
-	}
-
-	if (key == 'g' || key == 'G') {
-		this->gui.toggleView();
-	}
-	
-	if (key == 'q' || key == 'Q') {
-		this->quitApp();
+	//--bKeySpacePressed: gui key's only work if SPACE is pressed
+	if (key == ' ') {
+		bKeySpacePressed = true;
 	}
 
-	if (key == 'p' || key == 'P' ) {
-		this->togglePresentationMode();
-	}
-	
-	if (key == 'r' || key == 'R' ) {
-		bShowFPS = !bShowFPS;
+	if (bKeySpacePressed == true) {
+		
+		if (key == 'f' || key == 'F') {
+			ofToggleFullscreen();
+		}
+		
+		if (key == 'g' || key == 'G') {
+			this->gui.toggleView();
+		}
+		
+		if (key == 'q' || key == 'Q') {
+			this->quitApp();
+		}
+		
+		if (key == 'p' || key == 'P' ) {
+			this->togglePresentationMode();
+		}
+		
+		if (key == 'r' || key == 'R' ) {
+			bShowFPS = !bShowFPS;
+		}
 	}
 
 }
 
 //--------------------------------------------------------------
 void zinaApp::keyReleased(int key){
+	
+	if (key == ' ') {
+		bKeySpacePressed = false;
+	}
 
 }
 
@@ -507,6 +517,16 @@ void zinaApp::presentationModeOn(){
 	gui.hide();
 	
 	bPresentationMode = true;
+	
+	//--TODO: get window always on top on windows vista
+	
+	#ifdef TARGET_WIN32  
+		//get its handle "GLUT" = class name "ogl" = window   
+		HWND hwnd = FindWindow( "GLUT", "" );   
+		//set the window always-on-top  
+		captionSetWindowPos( hwnd, HWND_TOPMOST, NULL, NULL, NULL, NULL, SWP_NOREPOSITION | SWP_NOSIZE );  
+	#endif  
+	
 }
 
 //--------------------------------------------------------------

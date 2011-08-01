@@ -51,6 +51,7 @@ class zinaApp : public ofBaseApp{
 	
 		bool bHideCursor;
 		bool bPresentationMode;	
+		bool bKeySpacePressed;
 
 		//--serial
 		unsigned int serialDeviceId;
