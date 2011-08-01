@@ -48,6 +48,7 @@ class zinaApp : public ofBaseApp{
 		void presentationModeOn();
 		void presentationModeOff();
 		void toggleMouse();
+		void setWindowTopMost();
 	
 		bool bHideCursor;
 		bool bPresentationMode;	

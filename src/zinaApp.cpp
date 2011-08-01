@@ -104,6 +104,7 @@ void zinaApp::update(){
 
 	//--of
 	ofBackground(0, 0, 0);
+	setWindowTopMost();
 
 	//--serial
 	arduino.update();
@@ -518,17 +519,23 @@ void zinaApp::presentationModeOn(){
 	
 	bPresentationMode = true;
 	
+	setWindowTopMost();
+	
+	
+}
+
+//--------------------------------------------------------------
+void zinaApp::setWindowTopMost() {
 	//--TODO: get window always on top on windows vista
 	
 	#ifdef TARGET_WIN32  
 		//get its handle "GLUT" = class name "ogl" = window   
 		HWND hwnd = FindWindow( "GLUT", "" );   
 		//set the window always-on-top  
-		captionSetWindowPos( hwnd, HWND_TOPMOST, NULL, NULL, NULL, NULL, SWP_NOREPOSITION | SWP_NOSIZE );  
+		SetWindowPos( hwnd, HWND_TOPMOST, NULL, NULL, NULL, NULL, SWP_NOREPOSITION | SWP_NOSIZE );  
 	#endif  
-	
 }
-
+	
 //--------------------------------------------------------------
 void zinaApp::presentationModeOff(){
 
