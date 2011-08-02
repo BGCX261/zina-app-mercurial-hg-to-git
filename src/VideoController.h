@@ -68,13 +68,13 @@ public:
 private:
 	ofPoint videoPositions[NUM_VIDEOS], videoSizes[NUM_VIDEOS];
 	ofPoint primaryNamePosition, primaryNumberPosition; //relative to top-left corner of main video
-	ofPoint sideNamePosition, sideNumberPosition;				//relative to top-left corner of each side video
+	ofPoint sideNamePosition, sideNumberPosition, sideTimePosition;				//relative to top-left corner of each side video
 	ofPoint fullNamePosition, fullNumberPosition, fullTimePosition, fullReturnPosition;
 	
 	static const string returnText;
 	
 	videoInfo videos[NUM_VIDEOS];
-	ofTrueTypeFont primaryFont, sideFont, fullFont, timeFont, returnFont;
+	ofTrueTypeFont primaryFont, primaryBorderFont, sideFont, sideBorderFont, fullFont, timeFont, returnFont;
 	
 	int stationId;
 	VIDEO_MODE mode;

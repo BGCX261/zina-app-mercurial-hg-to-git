@@ -50,7 +50,7 @@ void zinaApp::setup(){
 
 	//--of
 	ofSetWindowTitle("ZinaApp");
-	ofSetFrameRate(60);
+	ofSetFrameRate(20);
 	ofSetVerticalSync(true);
 	
 	//--gui-vars--------------------------------------
@@ -462,14 +462,14 @@ void zinaApp::eventsIn(guiCallbackData & data){
 //--------------------------------------------------------------
 void zinaApp::drawShadedString( ofTrueTypeFont& _font, const string& _s, float _x, float _y, int _offsetX, int _offsetY ) {
 	ofColor fg, bg;
-	fg.r = fg.g = fg.b = fg.a = 255;
+	fg.r = fg.g = fg.b = fg.a = 250;
 	bg.r = bg.g = bg.b = bg.a = 0;
 	drawShadedString( _font, _s, _x, _y, fg, bg, _offsetX, _offsetY );
 }
 
 //--------------------------------------------------------------
 void zinaApp::drawShadedString( ofTrueTypeFont& _font, const string& _s, float _x, float _y, ofColor _fgColor, ofColor _bgColor, int _offsetX, int _offsetY ) {
-	ofSetColor( _bgColor.r, _bgColor.g, _bgColor.b );
+	/*ofSetColor( _bgColor.r, _bgColor.g, _bgColor.b );
 	_font.drawString( _s, _x - _offsetX, _y );
 	
 	ofSetColor( _bgColor.r, _bgColor.g, _bgColor.b );
@@ -479,10 +479,16 @@ void zinaApp::drawShadedString( ofTrueTypeFont& _font, const string& _s, float _
 	_font.drawString( _s, _x, _y - _offsetY );
 	
 	ofSetColor( _bgColor.r, _bgColor.g, _bgColor.b );
-	_font.drawString( _s, _x, _y + _offsetY );
+	_font.drawString( _s, _x, _y + _offsetY );*/
 	
+	/*
+	ofSetColor( _bgColor.r, _bgColor.g, _bgColor.b );
+	_font.drawString( _s, _x + _offsetX, _y + _offsetY );*/
+		
 	ofSetColor( _fgColor.r, _fgColor.g, _fgColor.b );
 	_font.drawString( _s, _x, _y );
+	
+	ofSetColor(255, 255, 255);
 }
 
 //--------------------------------------------------------------

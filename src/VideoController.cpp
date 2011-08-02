@@ -49,6 +49,7 @@ VideoController::VideoController()
 	primaryNumberPosition.set( 20, 340 ); //relative to top-left corner of main video
 	sideNamePosition.set( 5, 130 ); //relative to top-left corner of each side video
 	sideNumberPosition.set( 5, 154 ); //relative to top-left corner of each side video
+	//sideTimePosition.set(154, 288-5);
 	fullNamePosition.set( 25, 504 );
 	fullNumberPosition.set( 25, 564 );
 	fullTimePosition.set( 870, 517);
@@ -62,12 +63,12 @@ VideoController::~VideoController()
 //-------------------------------------------------------
 void VideoController::setup(int _stationId)
 {
-	primaryFont.loadFont( FONT_FILENAME, FONT_SIZE_PRIMARY, true, true, false );
-	sideFont.loadFont( FONT_FILENAME, FONT_SIZE_SIDE, true, true, false );
+	primaryFont.loadFont( FONT_FILENAME, FONT_SIZE_PRIMARY, true, true, true );
+	sideFont.loadFont( FONT_FILENAME, FONT_SIZE_SIDE, true, true, true );
 	fullFont.loadFont( FONT_FILENAME, FONT_SIZE_FULL, true, true, false );
 	timeFont.loadFont( FONT_FILENAME, FONT_SIZE_TIME, true, true, false );
 	returnFont.loadFont( FONT_FILENAME, FONT_SIZE_RETURN_TEXT, true, true, false );
-	
+
 	setStationID(_stationId);
 	setMode( VM_PORTAL );
 }
