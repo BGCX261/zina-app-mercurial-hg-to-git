@@ -67,6 +67,7 @@ class zinaApp : public ofBaseApp{
 		ofTrueTypeFont textFont;
 		string instructionString;
 		string callString;
+		string returnTextString;
 
 		//--video
 		VideoController videoController;

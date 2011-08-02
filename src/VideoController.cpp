@@ -31,6 +31,9 @@ const int VideoController::FONT_SIZE_PRIMARY = 40;
 const int VideoController::FONT_SIZE_SIDE = 12;
 const int VideoController::FONT_SIZE_FULL = VideoController::FONT_SIZE_PRIMARY;
 const int VideoController::FONT_SIZE_TIME = 18;
+const int VideoController::FONT_SIZE_RETURN_TEXT = 18;
+
+const string VideoController::returnText = "Stoppen: toets #";
 
 
 //-------------------------------------------------------
@@ -46,9 +49,10 @@ VideoController::VideoController()
 	primaryNumberPosition.set( 20, 340 ); //relative to top-left corner of main video
 	sideNamePosition.set( 5, 134 ); //relative to top-left corner of each side video
 	sideNumberPosition.set( 5, 154 ); //relative to top-left corner of each side video
-	fullNamePosition.set( 25, 520 );
-	fullNumberPosition.set( 25, 580 );
-	fullTimePosition.set( 870, 580);
+	fullNamePosition.set( 25, 504 );
+	fullNumberPosition.set( 25, 564 );
+	fullTimePosition.set( 870, 517);
+	fullReturnPosition.set( 717, 564);
 }
 
 //-------------------------------------------------------
@@ -62,6 +66,7 @@ void VideoController::setup(int _stationId)
 	sideFont.loadFont( FONT_FILENAME, FONT_SIZE_SIDE, true, true, false );
 	fullFont.loadFont( FONT_FILENAME, FONT_SIZE_FULL, true, true, false );
 	timeFont.loadFont( FONT_FILENAME, FONT_SIZE_TIME, true, true, false );
+	returnFont.loadFont( FONT_FILENAME, FONT_SIZE_RETURN_TEXT, true, true, false );
 	
 	setStationID(_stationId);
 	setMode( VM_PORTAL );
@@ -146,6 +151,8 @@ void VideoController::draw()
 				
 				string trString = getTimeRemainingString( vInfo.fullVideo.getPosition(), vInfo.fullVideo.getDuration() );
 				zinaApp::drawShadedString( timeFont, trString, fullTimePosition.x, fullTimePosition.y, 2, 2 );
+				
+				zinaApp::drawShadedString( returnFont, returnText, fullReturnPosition.x, fullReturnPosition.y, 2, 2 );
 			}
 			
 			break;

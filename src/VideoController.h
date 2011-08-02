@@ -44,6 +44,7 @@ public:
 	static const int FONT_SIZE_SIDE;
 	static const int FONT_SIZE_FULL;
 	static const int FONT_SIZE_TIME;
+	static const int FONT_SIZE_RETURN_TEXT;
 	
 	VideoController();
 	~VideoController();
@@ -68,10 +69,12 @@ private:
 	ofPoint videoPositions[NUM_VIDEOS], videoSizes[NUM_VIDEOS];
 	ofPoint primaryNamePosition, primaryNumberPosition; //relative to top-left corner of main video
 	ofPoint sideNamePosition, sideNumberPosition;				//relative to top-left corner of each side video
-	ofPoint fullNamePosition, fullNumberPosition, fullTimePosition;
+	ofPoint fullNamePosition, fullNumberPosition, fullTimePosition, fullReturnPosition;
+	
+	static const string returnText;
 	
 	videoInfo videos[NUM_VIDEOS];
-	ofTrueTypeFont primaryFont, sideFont, fullFont, timeFont;
+	ofTrueTypeFont primaryFont, sideFont, fullFont, timeFont, returnFont;
 	
 	int stationId;
 	VIDEO_MODE mode;

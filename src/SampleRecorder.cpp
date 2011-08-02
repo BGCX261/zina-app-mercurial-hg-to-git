@@ -75,7 +75,7 @@ void SampleRecorder::draw(){
 	
 	ofSetColor(255,255,255);
 	recordingFont.drawString("U heeft " + ofToString( recordingDuration ) + " seconden om een boodschap in te spreken" , 100, 130);
-	recordingFont.drawString("Toets # = stoppen" , 100, 500);
+	recordingFont.drawString("Stoppen: toets #" , 100, 500);
 	
 	//--draw the count down
 	float currentTime = recordingDuration - (mAudio_bufferCounter * recordingDuration) / ((SAMPLE_RATE * recordingDuration) / BUFFER_SIZE);

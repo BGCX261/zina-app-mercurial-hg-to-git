@@ -74,17 +74,18 @@ void zinaApp::setup(){
 	ofAddListener(arduino.onHornStatus, this, &zinaApp::onHornStatus);
 	
 	//--keypadController--------------------------
-	keypadController.setup(60, 32, 564);
+	keypadController.setup(56, 32, 564);
 	keypadController.setVolume( gui.getValueF("VOLUME_DIAL_TONES", 0));
 	keypadController.setDailDelay( gui.getValueI("DIAL_DELAY", 0));
 	ofAddListener(keypadController.onCallEvent, this, &zinaApp::onCallEvent);
 
 	//--font--instruction
-	textFont.loadFont("MONACO.TTF", 16, true, true, false);
+	textFont.loadFont("MONACO.TTF", 15, true, true, false);
 	instructionString = "Toets telefoonnummer om verhaal te starten";
 	stringstream s;
 	s << "Bel " << messageNumber << " om boodschap in te spreken";
 	callString = s.str();
+	returnTextString = "Nummer wissen: toets #";
 
 	//--video---------------------------------------
 	int newStationId = gui.getValueI("STATION_ID", 0) + 1;
@@ -149,7 +150,8 @@ void zinaApp::draw(){
 		
 			//--text
 			textFont.drawString(instructionString, 32, 424);
-			textFont.drawString(callString, 32, 464);
+			textFont.drawString(returnTextString, 32, 454);
+			textFont.drawString(callString, 32, 484);
 
 			//--keypadController
 			keypadController.draw();
@@ -206,14 +208,24 @@ void zinaApp::onHornStatus(EventArgsHorn & args) {
 //--------------------------------------------------------------
 void zinaApp::onKeypadPressed(EventArgsKeypad & args) {
 	if ( ! sampleRecorder.bIsRecording ) {
-		if (videoController.getMode() == VideoController::VM_FULL) {
-			videoController.setMode(VideoController::VM_PORTAL);
-		}
 		
-		keypadController.keypadPressed(args);
+		if (videoController.getMode() == VideoController::VM_FULL) {
+			if (args.keypadNum == '#') {
+				videoController.setMode(VideoController::VM_PORTAL);
+				keypadController.keypadPressed(args);	//passing serial input to keypad controller, trigger sound '#'
+			} 
+		} else {
+			keypadController.keypadPressed(args);	//passing serial input to keypad controller
+		}
+
 	} else {
 		//--TODO: when recording, ignore the keypad except '#' to cancel recording
-		sampleRecorder.stopRecording();
+		
+		if (args.keypadNum == '#') {
+			sampleRecorder.stopRecording();
+			keypadController.keypadPressed(args);
+		}
+		
 	}
 }
 
