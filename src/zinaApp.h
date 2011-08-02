@@ -76,6 +76,9 @@ class zinaApp : public ofBaseApp{
 		AudioComposition audioComposition;
 		ofxSoundStream voiceInputStream;
 	
+		//--disconnectTone
+		ofSoundPlayer disconnectTone;
+	
 		//--recording
 		SampleRecorder sampleRecorder;
 		void onFinishedRecordingEvent(EventArgsRecording & args);

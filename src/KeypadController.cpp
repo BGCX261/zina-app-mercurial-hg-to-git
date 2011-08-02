@@ -80,6 +80,7 @@ void KeypadController::update()
 	if(this->dialDelayCounter->isCounting()){
 		this->dialDelayCounter->update();
 		if(this->dialDelayCounter->isCountComplete()) {
+			this->dialDelayCounter->endCount();
 			afterDialDelay();
 			dialDelay = (int) ofRandom(dialDelayMin, dialDelayMax);
 			this->dialDelayCounter = new TimedCounter(dialDelay);
@@ -185,6 +186,18 @@ void KeypadController::setDailDelay(int _dialDelay)
 	dialDelay = (int) ofRandom(dialDelayMin, dialDelayMax);
 	this->dialDelayCounter = new TimedCounter(dialDelay);
 }
+
+//------------------------------------------
+bool KeypadController::getIsDialingCall()
+{
+	if (this->dialDelayCounter->isCounting() == true) {
+		cout << "CALLING... NO KEY INPUT PLEASE" << endl;
+		return true;
+	} else {
+		return false;
+	}
+}
+
 
 
 	

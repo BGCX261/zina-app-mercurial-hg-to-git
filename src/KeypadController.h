@@ -34,6 +34,8 @@ public:
 	void setVolume(float _volume);
 	void setDailDelay(int _dialDelay);
 	
+	bool getIsDialingCall();
+	
 	//--key events
 	EventArgsKeypad argsKeypad;
 	ofEvent<EventArgsKeypad> onKeypadPressed;

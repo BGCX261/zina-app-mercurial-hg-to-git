@@ -103,6 +103,13 @@ void zinaApp::setup(){
 	sampleRecorder.setup( voiceInputStream , gui.getValueI("RECORDING_DURATION", 0) );
 	ofAddListener(sampleRecorder.onFinishedRecordingEvent, this, &zinaApp::onFinishedRecordingEvent);
 	
+	//--disconnect tone------------------------------
+	disconnectTone.setMultiPlay(false);
+	disconnectTone.stop();
+	disconnectTone.bLoop = false;
+	disconnectTone.setVolume(0.5);
+	disconnectTone.loadSound("sound/disconnectTone/disconnectTone.wav");
+	
 	//--fps------------------------------------------
 	bShowFPS = false;
 	
@@ -215,17 +222,18 @@ void zinaApp::onKeypadPressed(EventArgsKeypad & args) {
 				keypadController.keypadPressed(args);	//passing serial input to keypad controller, trigger sound '#'
 			} 
 		} else {
-			keypadController.keypadPressed(args);	//passing serial input to keypad controller
+			if (keypadController.getIsDialingCall() == false) {
+				
+				//--MOST IMPORTANT: pass key input from serial to key handling in keypadController
+				keypadController.keypadPressed(args);
+			}
+			
 		}
-
-	} else {
-		//--TODO: when recording, ignore the keypad except '#' to cancel recording
-		
+	} else {	
 		if (args.keypadNum == '#') {
 			sampleRecorder.stopRecording();
 			keypadController.keypadPressed(args);
 		}
-		
 	}
 }
 
@@ -238,17 +246,18 @@ void zinaApp::onCallEvent(EventArgsCall & args) {
 			
 		videoController.setVolumeThumbs(0.0);
 		
-		cout << "videoController audiorecording" << endl;
+		cout << "onCallEvent:: videoController audiorecording" << endl;
 		
 	} else {
 		bool result = videoController.prepareVideoForFullMode( args.calledNumber );
 		
-		cout << "RESULT = " << result << " for '" << args.calledNumber << "' " << endl;
+		cout << "onCallEvent:: RESULT = " << result << " for '" << args.calledNumber << "' " << endl;
 		
 		if (result) {
 			videoController.setMode(VideoController::VM_FULL);
 		} else {
-			//TODO: number not found, play a sound sample?
+			disconnectTone.play();
+			cout << "onCallEvent:: no number found -> play disconnect tone" << endl;
 		}
 	}
 }

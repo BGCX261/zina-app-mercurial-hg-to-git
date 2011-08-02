@@ -241,9 +241,9 @@
 	};
 	148D804C135F0C7B00969538 /* KeypadController.cpp */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1149, 2496}}";
-			sepNavSelRange = "{3301, 0}";
-			sepNavVisRange = "{2307, 1581}";
+			sepNavIntBoundsRect = "{{0, 0}, {1149, 2600}}";
+			sepNavSelRange = "{3651, 0}";
+			sepNavVisRange = "{28, 1461}";
 			sepNavWindowFrame = "{{15, 16}, {704, 1037}}";
 		};
 	};
@@ -397,9 +397,9 @@
 	};
 	14C046ED12EDB92200DEA079 /* SerialDevice.cpp */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {771, 1664}}";
+			sepNavIntBoundsRect = "{{0, 0}, {1149, 1664}}";
 			sepNavSelRange = "{2750, 0}";
-			sepNavVisRange = "{1450, 1324}";
+			sepNavVisRange = "{1305, 1518}";
 			sepNavWindowFrame = "{{663, 0}, {704, 778}}";
 		};
 	};
@@ -484,6 +484,33 @@
 			sepNavSelRange = "{1585, 0}";
 			sepNavVisRange = "{0, 1656}";
 		};
+	};
+	14E30AFF13E839E100306CF2 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 6C938528135EE67B002A2187 /* VideoController.h */;
+		name = "VideoController.h: 70";
+		rLen = 0;
+		rLoc = 1495;
+		rType = 0;
+		vrLen = 1181;
+		vrLoc = 962;
+	};
+	14E30B0013E839E100306CF2 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 6C938527135EE67B002A2187 /* VideoController.cpp */;
+		rLen = 0;
+		rLoc = 2147483794;
+		rType = 0;
+	};
+	14E30B0113E839E100306CF2 /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 6C938527135EE67B002A2187 /* VideoController.cpp */;
+		name = "VideoController.cpp: 36";
+		rLen = 0;
+		rLoc = 1136;
+		rType = 0;
+		vrLen = 1285;
+		vrLoc = 0;
 	};
 	14F1760112F1814F00B87B90 /* TimedCounter.cpp */ = {
 		uiCtxt = {
@@ -661,7 +688,7 @@
 		fRef = E4B69E1E0A3A1BDC003C02F2 /* zinaApp.cpp */;
 		name = "zinaApp.cpp: 109";
 		rLen = 0;
-		rLoc = 3725;
+		rLoc = 3771;
 		rType = 0;
 		vrLen = 2153;
 		vrLoc = 1967;
@@ -671,7 +698,7 @@
 		fRef = E4B69E1F0A3A1BDC003C02F2 /* zinaApp.h */;
 		name = "zinaApp.h: 98";
 		rLen = 0;
-		rLoc = 2381;
+		rLoc = 2408;
 		rType = 0;
 		vrLen = 1453;
 		vrLoc = 1172;
@@ -681,7 +708,7 @@
 		fRef = E4B69E1E0A3A1BDC003C02F2 /* zinaApp.cpp */;
 		name = "zinaApp.cpp: 109";
 		rLen = 0;
-		rLoc = 3725;
+		rLoc = 3771;
 		rType = 0;
 		vrLen = 1669;
 		vrLoc = 0;
@@ -703,9 +730,9 @@
 	};
 	6C938527135EE67B002A2187 /* VideoController.cpp */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1149, 5564}}";
-			sepNavSelRange = "{2019, 0}";
-			sepNavVisRange = "{144, 2513}";
+			sepNavIntBoundsRect = "{{0, 0}, {1020, 5850}}";
+			sepNavSelRange = "{1136, 0}";
+			sepNavVisRange = "{0, 1285}";
 			sepNavWindowFrame = "{{15, 16}, {704, 1037}}";
 		};
 	};
@@ -818,8 +845,8 @@
 					PBXFileDataSource_Warnings_ColumnID,
 				);
 			};
-			PBXPerProjectTemplateStateSaveDate = 333976680;
-			PBXWorkspaceStateSaveDate = 333976680;
+			PBXPerProjectTemplateStateSaveDate = 333989020;
+			PBXWorkspaceStateSaveDate = 333989020;
 		};
 		perUserProjectItems = {
 			140023D112EC78C9001BC632 = 140023D112EC78C9001BC632 /* PBXTextBookmark */;
@@ -843,6 +870,9 @@
 			14C046F512EDBB5E00DEA079 = 14C046F512EDBB5E00DEA079 /* PBXTextBookmark */;
 			14C046F712EDBB5E00DEA079 = 14C046F712EDBB5E00DEA079 /* PBXTextBookmark */;
 			14C0476912EDC59200DEA079 = 14C0476912EDC59200DEA079 /* PBXTextBookmark */;
+			14E30AFF13E839E100306CF2 = 14E30AFF13E839E100306CF2 /* PBXTextBookmark */;
+			14E30B0013E839E100306CF2 = 14E30B0013E839E100306CF2 /* PBXTextBookmark */;
+			14E30B0113E839E100306CF2 = 14E30B0113E839E100306CF2 /* PBXTextBookmark */;
 			14FE400A13E6F65E00218E07 = 14FE400A13E6F65E00218E07 /* PBXTextBookmark */;
 			14FE401F13E6F8C500218E07 = 14FE401F13E6F8C500218E07 /* PBXTextBookmark */;
 			14FE405413E6FCDE00218E07 = 14FE405413E6FCDE00218E07 /* PBXTextBookmark */;
@@ -881,17 +911,17 @@
 	};
 	E4B69E1E0A3A1BDC003C02F2 /* zinaApp.cpp */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1149, 7969}}";
-			sepNavSelRange = "{6289, 37}";
-			sepNavVisRange = "{4036, 1576}";
+			sepNavIntBoundsRect = "{{0, 0}, {1149, 7995}}";
+			sepNavSelRange = "{2299, 0}";
+			sepNavVisRange = "{1549, 2478}";
 			sepNavWindowFrame = "{{15, 21}, {704, 1037}}";
 		};
 	};
 	E4B69E1F0A3A1BDC003C02F2 /* zinaApp.h */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1112, 1482}}";
-			sepNavSelRange = "{2257, 0}";
-			sepNavVisRange = "{400, 1268}";
+			sepNavIntBoundsRect = "{{0, 0}, {1149, 1443}}";
+			sepNavSelRange = "{1549, 0}";
+			sepNavVisRange = "{349, 1637}";
 			sepNavWindowFrame = "{{15, 307}, {1274, 746}}";
 		};
 	};
