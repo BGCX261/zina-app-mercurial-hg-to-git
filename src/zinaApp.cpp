@@ -475,10 +475,11 @@ void zinaApp::drawShadedString( ofTrueTypeFont& _font, const string& _s, float _
 //--------------------------------------------------------------
 void zinaApp::drawShadedString( ofTrueTypeFont& _font, const string& _s, float _x, float _y, ofColor _fgColor, ofColor _bgColor, int _offsetX, int _offsetY ) {
 		
-	/* //takes fps minus 3 frames
+	/* //NOTICE: takes fps minus 3-5 fps
 	ofSetColor( _bgColor.r, _bgColor.g, _bgColor.b );
 	_font.drawString( _s, _x + _offsetX, _y + _offsetY );*/
 	
+	//NOTICE: takes minus 2-3 fps 
 	ofSetColor(0, 0, 0);
 	ofRectangle rect = _font.getStringBoundingBox(_s, 0, 0);
 	float offset = 3;
@@ -486,7 +487,6 @@ void zinaApp::drawShadedString( ofTrueTypeFont& _font, const string& _s, float _
 		
 	ofSetColor( _fgColor.r, _fgColor.g, _fgColor.b );
 	_font.drawString( _s, _x, _y );
-	
 	
 	ofSetColor(255, 255, 255);
 }

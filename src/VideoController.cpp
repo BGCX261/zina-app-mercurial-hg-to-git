@@ -29,6 +29,7 @@ const int VideoController::MAX_NAME_LENGTH = 20;
 const string VideoController::FONT_FILENAME = "MONACO.TTF";
 const int VideoController::FONT_SIZE_PRIMARY = 40;
 const int VideoController::FONT_SIZE_SIDE = 15;
+const int VideoController::FONT_SIZE_SIDE_DURATION = 10;
 const int VideoController::FONT_SIZE_FULL = VideoController::FONT_SIZE_PRIMARY;
 const int VideoController::FONT_SIZE_TIME = 18;
 const int VideoController::FONT_SIZE_RETURN_TEXT = 18;
@@ -45,11 +46,12 @@ VideoController::VideoController()
 	videoPositions[1].set( 704, 32 ); videoSizes[1].set( 288, 162 );
 	videoPositions[2].set( 704, 219 ); videoSizes[2].set( 288, 162 );
 	videoPositions[3].set( 704, 406 ); videoSizes[3].set( 288, 162 );
-	primaryNamePosition.set( 20, 280 ); //relative to top-left corner of main video
-	primaryNumberPosition.set( 20, 340 ); //relative to top-left corner of main video
-	sideNamePosition.set( 7, 122 ); //relative to top-left corner of each side video
-	sideNumberPosition.set( 7, 150 ); //relative to top-left corner of each side video
-	//sideTimePosition.set(154, 288-5);
+	primaryNamePosition.set( 20, 280 );		//relative to top-left corner of main video
+	primaryNumberPosition.set( 20, 340 );	//relative to top-left corner of main video
+	primaryDurationPosition.set( 555, 340); //relative to top-left corner of main video
+	sideNamePosition.set( 7, 122 );		//relative to top-left corner of each side video
+	sideNumberPosition.set( 7, 150 );	//relative to top-left corner of each side video
+	sideDurationPosition.set(209, 150);	//relative to top-left corner of each side video
 	fullNamePosition.set( 25, 504 );
 	fullNumberPosition.set( 25, 564 );
 	fullTimePosition.set( 870, 517);
@@ -63,8 +65,9 @@ VideoController::~VideoController()
 //-------------------------------------------------------
 void VideoController::setup(int _stationId)
 {
-	primaryFont.loadFont( FONT_FILENAME, FONT_SIZE_PRIMARY, true, true, true );
-	sideFont.loadFont( FONT_FILENAME, FONT_SIZE_SIDE, true, true, true );
+	primaryFont.loadFont( FONT_FILENAME, FONT_SIZE_PRIMARY, true, true, false );
+	sideFont.loadFont( FONT_FILENAME, FONT_SIZE_SIDE, true, true, false );
+	sideDurationFont.loadFont( FONT_FILENAME, FONT_SIZE_SIDE_DURATION, true, true, false);
 	fullFont.loadFont( FONT_FILENAME, FONT_SIZE_FULL, true, true, false );
 	timeFont.loadFont( FONT_FILENAME, FONT_SIZE_TIME, true, true, false );
 	returnFont.loadFont( FONT_FILENAME, FONT_SIZE_RETURN_TEXT, true, true, false );
@@ -126,17 +129,26 @@ void VideoController::draw()
 					int numberY = videoPositions[i].y + primaryNumberPosition.y;
 					int nameX = videoPositions[i].x + primaryNamePosition.x;
 					int nameY = videoPositions[i].y + primaryNamePosition.y;
+					int durationX = videoPositions[i].x + primaryDurationPosition.x;
+					int durationY = videoPositions[i].y + primaryDurationPosition.y;
 					
 					zinaApp::drawShadedString( primaryFont, videos[i].number, numberX, numberY, 2, 2 );
 					zinaApp::drawShadedString( primaryFont, videos[i].name, nameX, nameY, 2, 2 );
+					string durationString = getTimeRemainingString(0.0, videos[i].thumbVideo.getDuration() );
+					zinaApp::drawShadedString( sideDurationFont, durationString, durationX, durationY, 2, 2 );
+					
 				} else {
 					int numberX = videoPositions[i].x + sideNumberPosition.x;
 					int numberY = videoPositions[i].y + sideNumberPosition.y;
 					int nameX = videoPositions[i].x + sideNamePosition.x;
 					int nameY = videoPositions[i].y + sideNamePosition.y;
+					int durationX = videoPositions[i].x + sideDurationPosition.x;
+					int durationY = videoPositions[i].y + sideDurationPosition.y;
 					
 					zinaApp::drawShadedString( sideFont, videos[i].number, numberX, numberY, 1, 1 );
 					zinaApp::drawShadedString( sideFont, videos[i].name, nameX, nameY, 1, 1 );
+					string durationString = getTimeRemainingString(0.0, videos[i].thumbVideo.getDuration() );
+					zinaApp::drawShadedString( sideDurationFont, durationString, durationX, durationY); 
 				}
 			}
 			break;
