@@ -216,7 +216,7 @@
 						<key>_historyCapacity</key>
 						<integer>0</integer>
 						<key>bookmark</key>
-						<string>1471E55E13E9BC1E00599390</string>
+						<string>1471E56613E9BD6800599390</string>
 						<key>history</key>
 						<array>
 							<string>1471E4C313E9A2A800599390</string>
@@ -256,7 +256,7 @@
 						<key>_historyCapacity</key>
 						<integer>0</integer>
 						<key>bookmark</key>
-						<string>1471E55F13E9BC1E00599390</string>
+						<string>1471E56713E9BD6800599390</string>
 						<key>history</key>
 						<array>
 							<string>1404C85413E98A5200B06CBC</string>
@@ -417,7 +417,7 @@
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>1471E55D13E9BC1E00599390</string>
+										<string>1471E56513E9BD6800599390</string>
 										<key>history</key>
 										<array>
 											<string>140023D112EC78C9001BC632</string>
@@ -670,16 +670,15 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>1471E56013E9BC1E00599390</string>
 		<string>1C530D57069F1CE1000CFCEE</string>
 		<string>1471E3B213E98B4700599390</string>
 		<string>1471E3B313E98B4700599390</string>
+		<string>1C78EAAD065D492600B07095</string>
 		<string>1CD10A99069EF8BA00B06720</string>
 		<string>1400212B12EC6EB0001BC632</string>
 		<string>14EAC63013E8577100EC5A07</string>
 		<string>1471E4C913E9A2C300599390</string>
 		<string>/Users/arne/Workspace/openFrameworks/openFrameworks_0062/apps-arne/zina-app-online/zina-app-mercurial/zinaApp.xcodeproj</string>
-		<string>1C78EAAD065D492600B07095</string>
 	</array>
 	<key>WindowString</key>
 	<string>395 120 1262 863 0 0 1920 1058 </string>
@@ -1055,7 +1054,7 @@
 			<key>WindowToolGUID</key>
 			<string>1C78EAAD065D492600B07095</string>
 			<key>WindowToolIsVisible</key>
-			<true/>
+			<false/>
 		</dict>
 		<dict>
 			<key>Identifier</key>

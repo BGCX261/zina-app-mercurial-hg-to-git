@@ -322,7 +322,7 @@ void zinaApp::setupGui(){
 	gui.setWhichPanel(0);
 	gui.setWhichColumn(0);
 
-	gui.addChartPlotter("appFrameRate", guiStatVarPointer("app fps", &appFrameRate, GUI_VAR_FLOAT, true, 2), 400, 100, 200, 10, 80);
+	gui.addChartPlotter("appFrameRate", guiStatVarPointer("app fps", &appFrameRate, GUI_VAR_FLOAT, true, 2), 300, 100, 200, 10, 80);
 
 	vector <guiVariablePointer> vars;
 	vars.push_back( guiVariablePointer("appFrameRate", &appFrameRate, GUI_VAR_FLOAT, 0) );
