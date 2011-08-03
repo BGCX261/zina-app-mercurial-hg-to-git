@@ -212,6 +212,9 @@ void SampleRecorder::stopRecording(){
 		cout << "SAMPLE RECORDER >> STOP RECORDING: " << lastRecordingFileName << endl;
 	}
 	
+	recordingIntroduction.stop();
+	recordingIntroduction.setPosition(0.0);
+	
 	//public (some if's in zinaApp count on this one)
 	bInRecordingModus = false;
 	

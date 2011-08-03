@@ -207,6 +207,7 @@ void zinaApp::onHornStatus(EventArgsHorn & args) {
 			}
 		} else {
 			sampleRecorder.stopRecording();
+			sampleRecorder
 		}
 		
 		//--keypad string to empty again
@@ -495,7 +496,7 @@ void zinaApp::drawShadedString( ofTrueTypeFont& _font, const string& _s, float _
 	//NOTICE: takes minus 2-3 fps 
 	ofSetColor(0, 0, 0);
 	ofRectangle rect = _font.getStringBoundingBox(_s, 0, 0);
-	float offset = 3;
+	float offset = 3.0;
 	ofRect(_x - offset, _y - rect.height + offset, rect.width + offset*2, rect.height + offset*2);
 		
 	ofSetColor( _fgColor.r, _fgColor.g, _fgColor.b );

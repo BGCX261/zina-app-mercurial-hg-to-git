@@ -216,7 +216,7 @@
 						<key>_historyCapacity</key>
 						<integer>0</integer>
 						<key>bookmark</key>
-						<string>1471E4AA13E99CFA00599390</string>
+						<string>1471E4BE13E9A0FC00599390</string>
 						<key>history</key>
 						<array>
 							<string>1404C85413E98A5200B06CBC</string>
@@ -322,8 +322,7 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>10</integer>
-									<integer>7</integer>
+									<integer>4</integer>
 									<integer>2</integer>
 									<integer>0</integer>
 								</array>
@@ -348,7 +347,7 @@
 							<real>286</real>
 						</array>
 						<key>RubberWindowFrame</key>
-						<string>-3 195 1262 863 0 0 1920 1058 </string>
+						<string>327 158 1262 863 0 0 1920 1058 </string>
 					</dict>
 					<key>Module</key>
 					<string>PBXSmartGroupTreeModule</string>
@@ -366,7 +365,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>SampleRecorder.cpp</string>
+								<string>zinaApp.cpp</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -374,11 +373,11 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>SampleRecorder.cpp</string>
+										<string>zinaApp.cpp</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>1471E4A913E99CFA00599390</string>
+										<string>1471E4BD13E9A0FC00599390</string>
 										<key>history</key>
 										<array>
 											<string>140023D112EC78C9001BC632</string>
@@ -413,13 +412,13 @@
 											<string>1471E3B413E9904400599390</string>
 											<string>1471E3B513E9904400599390</string>
 											<string>1471E3B913E9904400599390</string>
-											<string>1471E45013E993C000599390</string>
 											<string>1471E46C13E9956700599390</string>
 											<string>1471E47213E9962700599390</string>
 											<string>1471E49813E99B7900599390</string>
-											<string>1471E4A713E99CFA00599390</string>
 											<string>1471E4A813E99CFA00599390</string>
-											<string>1471E4A013E99C7000599390</string>
+											<string>1471E4BA13E9A0FC00599390</string>
+											<string>1471E4BB13E9A0FC00599390</string>
+											<string>1471E4BC13E9A0FC00599390</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -433,7 +432,7 @@
 								<key>Frame</key>
 								<string>{{0, 0}, {954, 817}}</string>
 								<key>RubberWindowFrame</key>
-								<string>-3 195 1262 863 0 0 1920 1058 </string>
+								<string>327 158 1262 863 0 0 1920 1058 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
@@ -453,7 +452,7 @@
 								<key>Frame</key>
 								<string>{{0, 822}, {954, 0}}</string>
 								<key>RubberWindowFrame</key>
-								<string>-3 195 1262 863 0 0 1920 1058 </string>
+								<string>327 158 1262 863 0 0 1920 1058 </string>
 							</dict>
 							<key>Module</key>
 							<string>XCDetailModule</string>
@@ -629,18 +628,17 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>1471E4AB13E99CFA00599390</string>
+		<string>1C530D57069F1CE1000CFCEE</string>
 		<string>1471E3B213E98B4700599390</string>
 		<string>1471E3B313E98B4700599390</string>
 		<string>1CD10A99069EF8BA00B06720</string>
 		<string>1400212B12EC6EB0001BC632</string>
 		<string>14EAC63013E8577100EC5A07</string>
-		<string>1C530D57069F1CE1000CFCEE</string>
 		<string>1C78EAAD065D492600B07095</string>
 		<string>/Users/arne/Workspace/openFrameworks/openFrameworks_0062/apps-arne/zina-app-online/zina-app-mercurial/zinaApp.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
-	<string>-3 195 1262 863 0 0 1920 1058 </string>
+	<string>327 158 1262 863 0 0 1920 1058 </string>
 	<key>WindowToolsV3</key>
 	<array>
 		<dict>
@@ -888,7 +886,7 @@
 										<key>Frame</key>
 										<string>{{0, 0}, {912, 489}}</string>
 										<key>RubberWindowFrame</key>
-										<string>924 34 912 1005 0 0 1920 1058 </string>
+										<string>851 36 912 1005 0 0 1920 1058 </string>
 									</dict>
 									<key>Module</key>
 									<string>PBXNavigatorGroup</string>
@@ -914,7 +912,7 @@
 								<key>Frame</key>
 								<string>{{0, 494}, {912, 470}}</string>
 								<key>RubberWindowFrame</key>
-								<string>924 34 912 1005 0 0 1920 1058 </string>
+								<string>851 36 912 1005 0 0 1920 1058 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXProjectFindModule</string>
@@ -943,11 +941,11 @@
 				<string>1CD0528E0623707200166675</string>
 			</array>
 			<key>WindowString</key>
-			<string>924 34 912 1005 0 0 1920 1058 </string>
+			<string>851 36 912 1005 0 0 1920 1058 </string>
 			<key>WindowToolGUID</key>
 			<string>1C530D57069F1CE1000CFCEE</string>
 			<key>WindowToolIsVisible</key>
-			<true/>
+			<false/>
 		</dict>
 		<dict>
 			<key>Identifier</key>
