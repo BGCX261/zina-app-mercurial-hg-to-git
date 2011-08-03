@@ -46,8 +46,8 @@ VideoController::VideoController()
 	videoPositions[1].set( 704, 32 ); videoSizes[1].set( 288, 162 );
 	videoPositions[2].set( 704, 219 ); videoSizes[2].set( 288, 162 );
 	videoPositions[3].set( 704, 406 ); videoSizes[3].set( 288, 162 );
-	primaryNamePosition.set( 20, 280 );		//relative to top-left corner of main video
-	primaryNumberPosition.set( 20, 340 );	//relative to top-left corner of main video
+	primaryNamePosition.set( 14, 280 );		//relative to top-left corner of main video
+	primaryNumberPosition.set( 14, 340 );	//relative to top-left corner of main video
 	primaryDurationPosition.set( 555, 340); //relative to top-left corner of main video
 	sideNamePosition.set( 7, 122 );		//relative to top-left corner of each side video
 	sideNumberPosition.set( 7, 150 );	//relative to top-left corner of each side video
