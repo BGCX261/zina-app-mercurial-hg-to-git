@@ -28,7 +28,7 @@ const int VideoController::MAX_NAME_LENGTH = 20;
 
 const string VideoController::FONT_FILENAME = "MONACO.TTF";
 const int VideoController::FONT_SIZE_PRIMARY = 40;
-const int VideoController::FONT_SIZE_SIDE = 16;
+const int VideoController::FONT_SIZE_SIDE = 15;
 const int VideoController::FONT_SIZE_FULL = VideoController::FONT_SIZE_PRIMARY;
 const int VideoController::FONT_SIZE_TIME = 18;
 const int VideoController::FONT_SIZE_RETURN_TEXT = 18;
@@ -47,13 +47,13 @@ VideoController::VideoController()
 	videoPositions[3].set( 704, 406 ); videoSizes[3].set( 288, 162 );
 	primaryNamePosition.set( 20, 280 ); //relative to top-left corner of main video
 	primaryNumberPosition.set( 20, 340 ); //relative to top-left corner of main video
-	sideNamePosition.set( 5, 130 ); //relative to top-left corner of each side video
-	sideNumberPosition.set( 5, 154 ); //relative to top-left corner of each side video
+	sideNamePosition.set( 7, 122 ); //relative to top-left corner of each side video
+	sideNumberPosition.set( 7, 150 ); //relative to top-left corner of each side video
 	//sideTimePosition.set(154, 288-5);
 	fullNamePosition.set( 25, 504 );
 	fullNumberPosition.set( 25, 564 );
 	fullTimePosition.set( 870, 517);
-	fullReturnPosition.set( 717, 564);
+	fullReturnPosition.set( 719, 564);
 }
 
 //-------------------------------------------------------

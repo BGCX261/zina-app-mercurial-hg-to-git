@@ -216,7 +216,7 @@
 						<key>_historyCapacity</key>
 						<integer>0</integer>
 						<key>bookmark</key>
-						<string>14EAC64B13E8582B00EC5A07</string>
+						<string>14EAC64E13E859FD00EC5A07</string>
 						<key>history</key>
 						<array>
 							<string>14EAC62313E8576400EC5A07</string>
@@ -377,7 +377,7 @@
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>14EAC64A13E8582B00EC5A07</string>
+										<string>14EAC64D13E859FD00EC5A07</string>
 										<key>history</key>
 										<array>
 											<string>140023D112EC78C9001BC632</string>
@@ -627,14 +627,13 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>14EAC64C13E8582B00EC5A07</string>
 		<string>14EAC63C13E8577100EC5A07</string>
 		<string>14EAC63D13E8577100EC5A07</string>
 		<string>1CD10A99069EF8BA00B06720</string>
 		<string>1400212B12EC6EB0001BC632</string>
-		<string>14EAC63013E8577100EC5A07</string>
 		<string>1C78EAAD065D492600B07095</string>
 		<string>/Users/arne/Workspace/openFrameworks/openFrameworks_0062/apps-arne/zina-app-online/zina-app-mercurial/zinaApp.xcodeproj</string>
+		<string>14EAC63013E8577100EC5A07</string>
 	</array>
 	<key>WindowString</key>
 	<string>551 144 1262 863 0 0 1920 1058 </string>

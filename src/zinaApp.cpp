@@ -114,7 +114,12 @@ void zinaApp::setup(){
 	bShowFPS = false;
 	
 	//--gui------------------------------------------
-	this->presentationModeOn();
+	#ifdef TARGET_WIN32
+		this->presentationModeOn();
+	#else
+		gui.hide();
+		bShowFPS = true;
+	#endif
 }
 
 //--------------------------------------------------------------
@@ -469,24 +474,19 @@ void zinaApp::drawShadedString( ofTrueTypeFont& _font, const string& _s, float _
 
 //--------------------------------------------------------------
 void zinaApp::drawShadedString( ofTrueTypeFont& _font, const string& _s, float _x, float _y, ofColor _fgColor, ofColor _bgColor, int _offsetX, int _offsetY ) {
-	/*ofSetColor( _bgColor.r, _bgColor.g, _bgColor.b );
-	_font.drawString( _s, _x - _offsetX, _y );
-	
-	ofSetColor( _bgColor.r, _bgColor.g, _bgColor.b );
-	_font.drawString( _s, _x + _offsetX, _y );
-	
-	ofSetColor( _bgColor.r, _bgColor.g, _bgColor.b );
-	_font.drawString( _s, _x, _y - _offsetY );
-	
-	ofSetColor( _bgColor.r, _bgColor.g, _bgColor.b );
-	_font.drawString( _s, _x, _y + _offsetY );*/
-	
-	/*
+		
+	/* //takes fps minus 3 frames
 	ofSetColor( _bgColor.r, _bgColor.g, _bgColor.b );
 	_font.drawString( _s, _x + _offsetX, _y + _offsetY );*/
+	
+	ofSetColor(0, 0, 0);
+	ofRectangle rect = _font.getStringBoundingBox(_s, 0, 0);
+	float offset = 3;
+	ofRect(_x - offset, _y - rect.height + offset, rect.width + offset*2, rect.height + offset*2);
 		
 	ofSetColor( _fgColor.r, _fgColor.g, _fgColor.b );
 	_font.drawString( _s, _x, _y );
+	
 	
 	ofSetColor(255, 255, 255);
 }
