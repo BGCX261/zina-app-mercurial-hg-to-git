@@ -212,6 +212,13 @@ void SampleRecorder::stopRecording(){
 		cout << "SAMPLE RECORDER >> STOP RECORDING: " << lastRecordingFileName << endl;
 	}
 	
+	//--clear buffers
+	for (int i = 0; i < BUFFER_SIZE; i++) {
+		left[i] = 0;
+		right[i] = 0;
+	}
+	
+	//introduction text
 	recordingIntroduction.stop();
 	recordingIntroduction.setPosition(0.0);
 	

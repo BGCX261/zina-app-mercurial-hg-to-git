@@ -11,7 +11,7 @@
     <val_0>60.555553</val_0>
 </VOLUME_FULL>
 <VOLUME_AURA>
-    <val_0>0.622222</val_0>
+    <val_0>0.750000</val_0>
 </VOLUME_AURA>
 <VOLUME_DAIL_TONES>
     <val_0>0.100000</val_0>
@@ -34,3 +34,6 @@
 <RECORDING_DURATION>
     <val_0>60.333336</val_0>
 </RECORDING_DURATION>
+<VOICE_RECORDING_OPTION>
+    <val_0>1.000000</val_0>
+</VOICE_RECORDING_OPTION>

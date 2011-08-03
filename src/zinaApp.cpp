@@ -58,6 +58,7 @@ void zinaApp::setup(){
 	bPresentationMode = false;
 	appFrameRate = 0;
 	bKeySpacePressed = false;
+	bRecordingOptionOn = true;
 	
 	//--gui-setup
 	setupGui();
@@ -114,6 +115,9 @@ void zinaApp::setup(){
 	//--fps------------------------------------------
 	bShowFPS = false;
 	
+	//--gui setting----------------------------------
+	bRecordingOptionOn = gui.getValueB("VOICE_RECORDING_OPTION", 0);
+	
 	//--gui------------------------------------------
 	#ifdef TARGET_WIN32
 		this->presentationModeOn();
@@ -167,7 +171,10 @@ void zinaApp::draw(){
 			//--text
 			textFont.drawString(instructionString, 32, 424);
 			textFont.drawString(returnTextString, 32, 454);
-			textFont.drawString(callString, 32, 484);
+			
+			if (bRecordingOptionOn) {
+				textFont.drawString(callString, 32, 484);
+			}
 
 			//--keypadController
 			keypadController.draw();
@@ -207,7 +214,6 @@ void zinaApp::onHornStatus(EventArgsHorn & args) {
 			}
 		} else {
 			sampleRecorder.stopRecording();
-			sampleRecorder
 		}
 		
 		//--keypad string to empty again
@@ -252,12 +258,17 @@ void zinaApp::onKeypadPressed(EventArgsKeypad & args) {
 //--------------------------------------------------------------
 void zinaApp::onCallEvent(EventArgsCall & args) {
 	if ( args.calledNumber.compare( messageNumber ) == 0 ) {
+
+		cout << "zinaApp::onCallEvent >> message number found" << endl;
+		cout << "zinaApp -> bRecordingOption = " << ofToString(bRecordingOptionOn) << " (starting recording modus if 1) " << endl;
 		
-		sampleRecorder.startIntroduction();
-		//sampleRecorder.startRecording();
-		videoController.setVolumeThumbs(0.0);
-		
-		cout << "zinaApp::onCallEvent >> message number found: starting recording introduction" << endl;
+		if (bRecordingOptionOn) {
+			sampleRecorder.startIntroduction();
+			//sampleRecorder.startRecording();
+			videoController.setVolumeThumbs(0.0);
+		} else {
+			disconnectTone.play();
+		}
 		
 	} else {
 		bool result = videoController.prepareVideoForFullMode( args.calledNumber );
@@ -340,6 +351,10 @@ void zinaApp::setupGui(){
 	gui.addSlider("Recording Duration", "RECORDING_DURATION", 60.0, 30.0, 160.0, true);
 	ofAddListener(gui.createEventGroup("RECORDING_DURATION"), this, &zinaApp::guiEventHandler);
 	
+	//-- button recording option
+	gui.addToggle("Voice Recording On", "VOICE_RECORDING_OPTION", true);
+	ofAddListener(gui.createEventGroup("VOICE_RECORDING_OPTION"), this, &zinaApp::guiEventHandler);
+	
 	//--column
 	gui.setWhichColumn(4);
 	
@@ -394,8 +409,12 @@ void zinaApp::guiEventHandler(guiCallbackData & data){
 	
 	else if( data.isElement( "RECORDING_DURATION" ) ){
 		gui.saveSettings(); 
-		
 		// TODO: update to sampleRecorder.setup(): but not each move in gui, only when final selection is made: oterhwise lots of resets while dragging
+	}
+	
+	else if( data.isElement( "VOICE_RECORDING_OPTION" ) ){
+		bRecordingOptionOn = !bRecordingOptionOn;
+		gui.setValueB("VOICE_RECORDING_OPTION", bRecordingOptionOn);
 	}
 	
 	else if( data.isElement( "VOLUME_THUMBS" ) ){
@@ -569,6 +588,11 @@ void zinaApp::keyPressed(int key){
 		
 		if (key == 'r' || key == 'R' ) {
 			bShowFPS = !bShowFPS;
+		}
+		
+		if (key == 'o' || key == 'O') {
+			bRecordingOptionOn = !bRecordingOptionOn;
+			gui.setValueB("VOICE_RECORDING_OPTION", bRecordingOptionOn);
 		}
 	}
 

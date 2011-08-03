@@ -96,11 +96,13 @@ class zinaApp : public ofBaseApp{
 		static const string messageNumber;
 	
 		bool bShowFPS;
+		bool bRecordingOptionOn;
 	
 		ofxDirList dirListStations;
 		vector <string> vectorStationIds;
 	
 		vector <string> vectorSerialIds;
+
 };
 
 #endif

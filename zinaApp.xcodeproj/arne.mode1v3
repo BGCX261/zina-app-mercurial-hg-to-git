@@ -202,6 +202,46 @@
 			<key>Content</key>
 			<dict>
 				<key>PBXProjectModuleGUID</key>
+				<string>1471E4C913E9A2C300599390</string>
+				<key>PBXProjectModuleLabel</key>
+				<string>zinaApp.cpp</string>
+				<key>PBXSplitModuleInNavigatorKey</key>
+				<dict>
+					<key>Split0</key>
+					<dict>
+						<key>PBXProjectModuleGUID</key>
+						<string>1471E4CA13E9A2C300599390</string>
+						<key>PBXProjectModuleLabel</key>
+						<string>zinaApp.cpp</string>
+						<key>_historyCapacity</key>
+						<integer>0</integer>
+						<key>bookmark</key>
+						<string>1471E4FC13E9A60900599390</string>
+						<key>history</key>
+						<array>
+							<string>1471E4C313E9A2A800599390</string>
+						</array>
+					</dict>
+					<key>SplitCount</key>
+					<string>1</string>
+				</dict>
+				<key>StatusBarVisibility</key>
+				<true/>
+			</dict>
+			<key>Geometry</key>
+			<dict>
+				<key>Frame</key>
+				<string>{{0, 20}, {1123, 627}}</string>
+				<key>PBXModuleWindowStatusBarHidden2</key>
+				<false/>
+				<key>RubberWindowFrame</key>
+				<string>15 390 1123 668 0 0 1920 1058 </string>
+			</dict>
+		</dict>
+		<dict>
+			<key>Content</key>
+			<dict>
+				<key>PBXProjectModuleGUID</key>
 				<string>14EAC63013E8577100EC5A07</string>
 				<key>PBXProjectModuleLabel</key>
 				<string>VideoController.cpp</string>
@@ -216,7 +256,7 @@
 						<key>_historyCapacity</key>
 						<integer>0</integer>
 						<key>bookmark</key>
-						<string>1471E4BE13E9A0FC00599390</string>
+						<string>1471E4FD13E9A60900599390</string>
 						<key>history</key>
 						<array>
 							<string>1404C85413E98A5200B06CBC</string>
@@ -377,7 +417,7 @@
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>1471E4BD13E9A0FC00599390</string>
+										<string>1471E4FB13E9A60900599390</string>
 										<key>history</key>
 										<array>
 											<string>140023D112EC78C9001BC632</string>
@@ -413,12 +453,12 @@
 											<string>1471E3B513E9904400599390</string>
 											<string>1471E3B913E9904400599390</string>
 											<string>1471E46C13E9956700599390</string>
-											<string>1471E47213E9962700599390</string>
-											<string>1471E49813E99B7900599390</string>
 											<string>1471E4A813E99CFA00599390</string>
-											<string>1471E4BA13E9A0FC00599390</string>
 											<string>1471E4BB13E9A0FC00599390</string>
-											<string>1471E4BC13E9A0FC00599390</string>
+											<string>1471E4C613E9A2C300599390</string>
+											<string>1471E4EC13E9A56600599390</string>
+											<string>1471E4F313E9A5CC00599390</string>
+											<string>1471E4F413E9A5CC00599390</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -628,12 +668,14 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
+		<string>1471E4FE13E9A60900599390</string>
 		<string>1C530D57069F1CE1000CFCEE</string>
 		<string>1471E3B213E98B4700599390</string>
 		<string>1471E3B313E98B4700599390</string>
 		<string>1CD10A99069EF8BA00B06720</string>
-		<string>1400212B12EC6EB0001BC632</string>
 		<string>14EAC63013E8577100EC5A07</string>
+		<string>1471E4C913E9A2C300599390</string>
+		<string>1400212B12EC6EB0001BC632</string>
 		<string>1C78EAAD065D492600B07095</string>
 		<string>/Users/arne/Workspace/openFrameworks/openFrameworks_0062/apps-arne/zina-app-online/zina-app-mercurial/zinaApp.xcodeproj</string>
 	</array>
@@ -654,14 +696,12 @@
 					<key>Dock</key>
 					<array>
 						<dict>
-							<key>BecomeActive</key>
-							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
 								<string>1CD0528F0623707200166675</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>SampleRecorder.cpp</string>
+								<string>zinaApp.cpp</string>
 								<key>StatusBarVisibility</key>
 								<true/>
 							</dict>
@@ -678,6 +718,8 @@
 							<string>571pt</string>
 						</dict>
 						<dict>
+							<key>BecomeActive</key>
+							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
@@ -730,7 +772,7 @@
 			<key>WindowToolGUID</key>
 			<string>1400212B12EC6EB0001BC632</string>
 			<key>WindowToolIsVisible</key>
-			<false/>
+			<true/>
 		</dict>
 		<dict>
 			<key>FirstTimeWindowDisplayed</key>
@@ -978,7 +1020,7 @@
 								<key>Frame</key>
 								<string>{{0, 0}, {907, 631}}</string>
 								<key>RubberWindowFrame</key>
-								<string>1288 231 907 672 0 0 1920 1058 </string>
+								<string>966 237 907 672 0 0 1920 1058 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXDebugCLIModule</string>
@@ -1007,7 +1049,7 @@
 			<key>ToolbarConfiguration</key>
 			<string>xcode.toolbar.config.consoleV3</string>
 			<key>WindowString</key>
-			<string>1288 231 907 672 0 0 1920 1058 </string>
+			<string>966 237 907 672 0 0 1920 1058 </string>
 			<key>WindowToolGUID</key>
 			<string>1C78EAAD065D492600B07095</string>
 			<key>WindowToolIsVisible</key>
