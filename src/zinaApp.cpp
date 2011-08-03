@@ -50,7 +50,7 @@ void zinaApp::setup(){
 
 	//--of
 	ofSetWindowTitle("ZinaApp");
-	ofSetFrameRate(20);
+	ofSetFrameRate(60);
 	ofSetVerticalSync(true);
 	
 	//--gui-vars--------------------------------------
