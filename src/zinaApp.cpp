@@ -102,6 +102,7 @@ void zinaApp::setup(){
 	voiceInputStream.setup( 0, 2, this, SOUND_INPUT_SAMPLERATE, SOUND_INPUT_BUFFERSIZE, 4 );
 	sampleRecorder.setup( voiceInputStream , gui.getValueI("RECORDING_DURATION", 0) );
 	ofAddListener(sampleRecorder.onFinishedRecordingEvent, this, &zinaApp::onFinishedRecordingEvent);
+	ofAddListener(sampleRecorder.onFinishedIntroductionEvent, this, &zinaApp::onFinishedIntroductionEvent );
 	
 	//--disconnect tone------------------------------
 	disconnectTone.setMultiPlay(false);
@@ -142,6 +143,9 @@ void zinaApp::update(){
 	
 	//--audio composition
 	audioComposition.update();
+	
+	//--sample recorder
+	sampleRecorder.update();
 
 	//--gui
 	appFrameRate = ofGetFrameRate();
@@ -156,7 +160,7 @@ void zinaApp::draw(){
 	//--set color
 	ofSetColor(255, 255, 255);
 
-	if ( ! sampleRecorder.bIsRecording ) {
+	if ( ! sampleRecorder.bInRecordingModus ) {
 		//--check video mode
 		if( videoController.getMode() == VideoController::VM_PORTAL ) {
 		
@@ -197,7 +201,7 @@ void zinaApp::onHornStatus(EventArgsHorn & args) {
 		audioComposition.play();
 		
 		//--go back to portal mode and stop recording
-		if ( ! sampleRecorder.bIsRecording ) {
+		if ( ! sampleRecorder.bInRecordingModus ) {
 			if (videoController.getMode() == VideoController::VM_FULL) {
 				videoController.setMode(VideoController::VM_PORTAL);
 			}
@@ -219,7 +223,7 @@ void zinaApp::onHornStatus(EventArgsHorn & args) {
 //-- KEYPAD ----------------------------------------------------
 //--------------------------------------------------------------
 void zinaApp::onKeypadPressed(EventArgsKeypad & args) {
-	if ( ! sampleRecorder.bIsRecording ) {
+	if ( ! sampleRecorder.bInRecordingModus ) {
 		
 		if (videoController.getMode() == VideoController::VM_FULL) {
 			if (args.keypadNum == '#') {
@@ -247,22 +251,23 @@ void zinaApp::onKeypadPressed(EventArgsKeypad & args) {
 //--------------------------------------------------------------
 void zinaApp::onCallEvent(EventArgsCall & args) {
 	if ( args.calledNumber.compare( messageNumber ) == 0 ) {
-		sampleRecorder.startRecording();
-			
+		
+		sampleRecorder.startIntroduction();
+		//sampleRecorder.startRecording();
 		videoController.setVolumeThumbs(0.0);
 		
-		cout << "onCallEvent:: videoController audiorecording" << endl;
+		cout << "zinaApp::onCallEvent >> message number found: starting recording introduction" << endl;
 		
 	} else {
 		bool result = videoController.prepareVideoForFullMode( args.calledNumber );
 		
-		cout << "onCallEvent:: RESULT = " << result << " for '" << args.calledNumber << "' " << endl;
+		cout << "zinaApp::onCallEvent:: RESULT = " << result << " for '" << args.calledNumber << "' " << endl;
 		
 		if (result) {
 			videoController.setMode(VideoController::VM_FULL);
 		} else {
 			disconnectTone.play();
-			cout << "onCallEvent:: no number found -> play disconnect tone" << endl;
+			cout << "zinaApp::onCallEvent:: no number found -> play disconnect tone" << endl;
 		}
 	}
 }
@@ -274,6 +279,14 @@ void zinaApp::onFinishedRecordingEvent(EventArgsRecording & args) {
 	
 	videoController.setVolumeThumbs( gui.getValueF("VOLUME_THUMBS", 0) );
 	cout << "set volume back to gui value" << endl;
+}
+
+//--------------------------------------------------------------
+void zinaApp::onFinishedIntroductionEvent(EventArgsIntroductionRecording & args) {
+	
+	cout << "GOT IT: startRecording()" << endl;
+	sampleRecorder.startRecording();
+	
 }
 
 //--------------------------------------------------------------

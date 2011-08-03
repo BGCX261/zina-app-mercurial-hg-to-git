@@ -55,6 +55,7 @@ void SampleRecorder::setup(ofxSoundStream & masterMAudio, int _recordingDuration
 	mAudio_bufferCounter = 0;
 	
 	bIsRecording = false;
+	bInRecordingModus = false;
 	
 	ofAddListener(masterMAudio.audioReceivedEvent, this, &SampleRecorder::audioInputListener);
 	//ofAddListener(sampleStreamPlayback.onNextStepEvent, this, &SampleRecorder::startRecording);
@@ -62,11 +63,34 @@ void SampleRecorder::setup(ofxSoundStream & masterMAudio, int _recordingDuration
 	//--font
 	recordingFont.loadFont("MONACO.TTF", 16, true, true, false);
 	recordingCountDownFont.loadFont("MONACO.TTF", 120, true, true, false);
+	
+	//--sound
+	recordingIntroduction.setMultiPlay(false);
+	recordingIntroduction.setLoop(false);
+	recordingIntroduction.setVolume(0.8);
+	recordingIntroduction.loadSound("sound/recIntro/recIntro.wav", false);
 
 }
 
 //--------------------------------------------------------------
 void SampleRecorder::update(){
+	
+	if (recordingIntroduction.bLoadedOk) {
+		if ( recordingIntroduction.getIsPlaying() ) {			
+			if (recordingIntroduction.getPosition() > 0.96) {
+			
+				recordingIntroduction.stop();
+				recordingIntroduction.setPosition(0.0);
+				
+				cout << "SampleRecorder::update() introduction fineshed, notify to listener zinaApp to call startRecording()" << endl;
+				
+				argsIntroductionRecording.bFinishedIntroduction = true;
+				ofNotifyEvent(onFinishedIntroductionEvent, argsIntroductionRecording, this);
+				
+				
+			}
+		}
+	}
 	
 }
 
@@ -120,17 +144,26 @@ void SampleRecorder::draw(){
 	ofSetColor(255, 255, 255);
 }
 
+//--------------------------------------------------------------
+void SampleRecorder::startIntroduction() {
+	
+	bInRecordingModus = true;
+	recordingIntroduction.play();
+	
+	cout << "playing introduction" << endl;
+	
+}
+
 //-START - STOP RECORDING-------------------------------------------------------------
 //--------------------------------------------------------------
-//void SampleRecorder::startRecording(int & _stepPosition){
+//void SampleRecorder::startRecording(int _stepPosition){
 void SampleRecorder::startRecording(){
-	
-	//cout << "SAMPLE_RECORDER >> receives stepPosition: " << _stepPosition << endl;
-	
-	SF_INFO mAudio_info;
-	
+			
 	//if(!bIsRecording && _stepPosition == 2){
 	if(!bIsRecording){
+		
+		//audio info
+		SF_INFO mAudio_info;
 		
 		//--clear buffers
 		for (int i = 0; i < BUFFER_SIZE; i++) {
@@ -171,14 +204,18 @@ void SampleRecorder::startRecording(){
 //--------------------------------------------------------------
 void SampleRecorder::stopRecording(){
 	
+	//private (for actuall recording of data)
 	if(bIsRecording){
 		bIsRecording = false;
-		
 		sf_close(mAudio_recorder);
 				
 		cout << "SAMPLE RECORDER >> STOP RECORDING: " << lastRecordingFileName << endl;
 	}
 	
+	//public (some if's in zinaApp count on this one)
+	bInRecordingModus = false;
+	
+	//notify finished (listener in zinaApp for regulating volume of vids)
 	argsRecording.bIsRecording = false;
 	ofNotifyEvent(onFinishedRecordingEvent, argsRecording, this);
 

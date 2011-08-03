@@ -38,7 +38,8 @@ public:
 	
 	void audioInputListener (ofxAudioEventArgs &args);
 	
-	//void startRecording(int & _stepPosition);
+	//void startRecording(int _stepPosition);
+	void startIntroduction();
 	void startRecording();
 	void stopRecording();
 
@@ -47,12 +48,17 @@ public:
 	EventArgsRecording argsRecording;
 	ofEvent<EventArgsRecording>	onFinishedRecordingEvent;
 	
-	bool bIsRecording;
+	bool bInRecordingModus;
+	
+	EventArgsIntroductionRecording argsIntroductionRecording;
+	ofEvent<EventArgsIntroductionRecording> onFinishedIntroductionEvent;
 		
 private:
 	
 	//-RECORDING-----------------
 	//ofxSoundStream mAudio; //using masterMAudio which is passed from testApp
+		
+	bool bIsRecording;
 	
 	int recordingDuration;
 	
@@ -77,6 +83,9 @@ private:
 	//font
 	ofTrueTypeFont recordingFont;
 	ofTrueTypeFont recordingCountDownFont;
+	
+	//SAMPLE
+	ofSoundPlayer recordingIntroduction;
 
 };
 

@@ -52,4 +52,10 @@ public:
 	bool bIsRecording;
 };
 
+class EventArgsIntroductionRecording : public ofEventArgs
+{
+public:
+	bool bFinishedIntroduction;
+};
+
 #endif

@@ -82,6 +82,7 @@ class zinaApp : public ofBaseApp{
 		//--recording
 		SampleRecorder sampleRecorder;
 		void onFinishedRecordingEvent(EventArgsRecording & args);
+		void onFinishedIntroductionEvent(EventArgsIntroductionRecording & args);
 	
 		//--utility functions
 		static void splitString(const string& s, char c, vector<string>& v);
