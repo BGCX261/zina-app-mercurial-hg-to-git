@@ -134,7 +134,6 @@ void zinaApp::update(){
 
 	//--of
 	ofBackground(0, 0, 0);
-	//setWindowTopMost();
 
 	//--serial
 	arduino.update();
@@ -150,6 +149,11 @@ void zinaApp::update(){
 	
 	//--sample recorder
 	sampleRecorder.update();
+	
+	//--topmost
+	if(ofGetFrameNum() % 100 == 0) {
+		setWindowTopMost();
+	}
 
 	//--gui
 	appFrameRate = ofGetFrameRate();
@@ -627,8 +631,6 @@ void zinaApp::presentationModeOn(){
 	bPresentationMode = true;
 	
 	setWindowTopMost();
-	
-	
 }
 
 //--------------------------------------------------------------
@@ -636,11 +638,15 @@ void zinaApp::setWindowTopMost() {
 	//--TODO: get window always on top on windows vista
 	
 	#ifdef TARGET_WIN32  
+
 		//get its handle "GLUT" = class name "ogl" = window   
-		HWND hwnd = FindWindow( "GLUT", "" );   
+		HWND hwnd = FindWindow( "GLUT", "zinaApp" );   
 		//set the window always-on-top  
 		SetWindowPos( hwnd, HWND_TOPMOST, NULL, NULL, NULL, NULL, SWP_NOREPOSITION | SWP_NOSIZE );  
 		//cout << "set window top most" << endl;
+	
+		SetFocus(hwnd);
+		SetActiveWindow(hwnd);
 	#endif  
 }
 	

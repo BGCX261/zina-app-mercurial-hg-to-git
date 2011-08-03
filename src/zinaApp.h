@@ -12,6 +12,10 @@
 #include "VideoController.h"
 #include "SampleRecorder.h"
 
+#ifdef TARGET_WIN32 
+#include <windows.h>
+#endif
+
 class zinaApp : public ofBaseApp{
 
 	public:
@@ -90,6 +94,7 @@ class zinaApp : public ofBaseApp{
 										float _y, int _offsetX = 1, int _offsetY = 1 );
 		static void drawShadedString( ofTrueTypeFont& _font, const string& _s, float _x,
 										float _y, ofColor _fgColor, ofColor _bgColor, int _offsetX = 1, int _offsetY = 1 );
+		
 	
 	private:
 	
