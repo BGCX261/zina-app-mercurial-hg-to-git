@@ -67,7 +67,7 @@ void SampleRecorder::setup(ofxSoundStream & masterMAudio, int _recordingDuration
 	//--sound
 	recordingIntroduction.setMultiPlay(false);
 	recordingIntroduction.setLoop(false);
-	recordingIntroduction.setVolume(0.4);
+	recordingIntroduction.setVolume(0.3);
 	recordingIntroduction.loadSound("sound/recIntro/recIntro.wav", false);
 
 }
