@@ -19,7 +19,7 @@ KeypadController::KeypadController()
 	keypadString = "";
 	bClearStringNextRound = false;
 	bBlink = false;
-	blinkTime = 15;
+	blinkTime = 10;
 	
 	dialDelay = 50;
 	dialDelayMin = 40;

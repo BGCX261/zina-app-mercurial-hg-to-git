@@ -12,31 +12,11 @@ using namespace std;
 
 /***********************************************
  * TODO
- * + today
- * - gui var for station id
- * - gui var for serial device id
- * - audio composition gets station id info in setup
- * - implement video stuff
  *
- * - review interface which is drawn while recording (maybe add time remaining?)
  * - probably best to pause VideoController when recording starts, and restart it
  *   when recording stops (maybe add MODE_STOP to VideoController?)
  * - app crashes in RtAudio.h (??) on exit (at least on osx)
- * - unclear behaviour: entering non-existing number triggers the dialDelay while still
- *   allowing to enter numbers, which are then reset as soon as the delay is up
- *   (NOTE: onCallEvent already has an else clause for this with suggestion to
- *   play a sample in this case...real phones have the three tone sounds for this)
- *
- * + check
- * - performance with video's 
- */
-
-/***************************
- *
- * TODO 2
- * - always on top
- *
- *
+ * - setting window top most works, but bringing focus back on this window does not work
  *
  */
 
@@ -635,18 +615,21 @@ void zinaApp::presentationModeOn(){
 
 //--------------------------------------------------------------
 void zinaApp::setWindowTopMost() {
-	//--TODO: get window always on top on windows vista
+	//--TODO: make window really active when other window was selected
 	
 	#ifdef TARGET_WIN32  
 
 		//get its handle "GLUT" = class name "ogl" = window   
 		HWND hwnd = FindWindow( "GLUT", "zinaApp" );   
 		//set the window always-on-top  
+		SetWindowPos( hwnd, HWND_TOP, NULL, NULL, NULL, NULL, SWP_NOREPOSITION | SWP_NOSIZE );  
 		SetWindowPos( hwnd, HWND_TOPMOST, NULL, NULL, NULL, NULL, SWP_NOREPOSITION | SWP_NOSIZE );  
-		//cout << "set window top most" << endl;
 	
+		//--none of below are working really..
+		SetForegroundWindow(hwnd);
 		SetFocus(hwnd);
 		SetActiveWindow(hwnd);
+		
 	#endif  
 }
 	

@@ -98,7 +98,8 @@ void SampleRecorder::update(){
 void SampleRecorder::draw(){
 	
 	ofSetColor(255,255,255);
-	recordingFont.drawString("U heeft " + ofToString( recordingDuration ) + " seconden om een boodschap in te spreken" , 100, 130);
+	recordingFont.drawString("Na de inleidende stem vanuit de telefoonhoorn, ", 100, 100);
+	recordingFont.drawString("heeft u " + ofToString( recordingDuration ) + " seconden om een reactie in te spreken" , 100, 130);
 	recordingFont.drawString("Stoppen: toets #" , 100, 500);
 	
 	//--draw the count down
