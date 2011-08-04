@@ -622,7 +622,6 @@ void zinaApp::setWindowTopMost() {
 		//get its handle "GLUT" = class name "ogl" = window   
 		HWND hwnd = FindWindow( "GLUT", "zinaApp" );   
 		//set the window always-on-top  
-		SetWindowPos( hwnd, HWND_TOP, NULL, NULL, NULL, NULL, SWP_NOREPOSITION | SWP_NOSIZE );  
 		SetWindowPos( hwnd, HWND_TOPMOST, NULL, NULL, NULL, NULL, SWP_NOREPOSITION | SWP_NOSIZE );  
 	
 		//--none of below are working really..
