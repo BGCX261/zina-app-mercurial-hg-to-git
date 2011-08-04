@@ -959,6 +959,46 @@
 		vrLen = 2742;
 		vrLoc = 924;
 	};
+	14D1DD9B13EABD45001C77AB /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = E4B69E1E0A3A1BDC003C02F2 /* zinaApp.cpp */;
+		name = "zinaApp.cpp: 625";
+		rLen = 0;
+		rLoc = 19099;
+		rType = 0;
+		vrLen = 2258;
+		vrLoc = 10143;
+	};
+	14D1DD9C13EABD45001C77AB /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 6C14D84B1371EFEC00A63AE5 /* SampleRecorder.cpp */;
+		name = "SampleRecorder.cpp: 101";
+		rLen = 0;
+		rLoc = 2839;
+		rType = 0;
+		vrLen = 2020;
+		vrLoc = 546;
+	};
+	14D1DD9D13EABD45001C77AB /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 6C14D84B1371EFEC00A63AE5 /* SampleRecorder.cpp */;
+		name = "SampleRecorder.cpp: 70";
+		rLen = 0;
+		rLoc = 1970;
+		rType = 0;
+		vrLen = 2059;
+		vrLoc = 598;
+	};
+	14D1DD9E13EABD45001C77AB /* PBXTextBookmark */ = {
+		isa = PBXTextBookmark;
+		fRef = 6C938527135EE67B002A2187 /* VideoController.cpp */;
+		name = "VideoController.cpp: 72";
+		rLen = 0;
+		rLoc = 2767;
+		rType = 0;
+		vrLen = 2742;
+		vrLoc = 924;
+	};
 	14F1760112F1814F00B87B90 /* TimedCounter.cpp */ = {
 		uiCtxt = {
 			sepNavIntBoundsRect = "{{0, 0}, {771, 1131}}";
@@ -1032,9 +1072,9 @@
 	};
 	6C14D84B1371EFEC00A63AE5 /* SampleRecorder.cpp */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {985, 3562}}";
-			sepNavSelRange = "{2839, 0}";
-			sepNavVisRange = "{2145, 1455}";
+			sepNavIntBoundsRect = "{{0, 0}, {950, 3588}}";
+			sepNavSelRange = "{1970, 0}";
+			sepNavVisRange = "{598, 2059}";
 			sepNavWindowFrame = "{{18, 21}, {704, 1037}}";
 		};
 	};
@@ -1233,6 +1273,10 @@
 			14D1DD9813EABB9F001C77AB /* PBXTextBookmark */ = 14D1DD9813EABB9F001C77AB /* PBXTextBookmark */;
 			14D1DD9913EABBE6001C77AB /* PBXTextBookmark */ = 14D1DD9913EABBE6001C77AB /* PBXTextBookmark */;
 			14D1DD9A13EABBE6001C77AB /* PBXTextBookmark */ = 14D1DD9A13EABBE6001C77AB /* PBXTextBookmark */;
+			14D1DD9B13EABD45001C77AB /* PBXTextBookmark */ = 14D1DD9B13EABD45001C77AB /* PBXTextBookmark */;
+			14D1DD9C13EABD45001C77AB /* PBXTextBookmark */ = 14D1DD9C13EABD45001C77AB /* PBXTextBookmark */;
+			14D1DD9D13EABD45001C77AB /* PBXTextBookmark */ = 14D1DD9D13EABD45001C77AB /* PBXTextBookmark */;
+			14D1DD9E13EABD45001C77AB /* PBXTextBookmark */ = 14D1DD9E13EABD45001C77AB /* PBXTextBookmark */;
 			14FE407613E6FE5000218E07 = 14FE407613E6FE5000218E07 /* PBXTextBookmark */;
 			14FE407713E6FE5000218E07 = 14FE407713E6FE5000218E07 /* PBXTextBookmark */;
 			14FE40E913E7071600218E07 = 14FE40E913E7071600218E07 /* PBXTextBookmark */;
@@ -1258,9 +1302,9 @@
 	};
 	E4B69E1E0A3A1BDC003C02F2 /* zinaApp.cpp */ = {
 		uiCtxt = {
-			sepNavIntBoundsRect = "{{0, 0}, {1125, 9243}}";
+			sepNavIntBoundsRect = "{{0, 0}, {1125, 8684}}";
 			sepNavSelRange = "{19099, 0}";
-			sepNavVisRange = "{18292, 1398}";
+			sepNavVisRange = "{10143, 2258}";
 			sepNavWindowFrame = "{{15, 334}, {1123, 724}}";
 		};
 	};

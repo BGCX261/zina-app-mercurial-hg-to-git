@@ -216,7 +216,7 @@
 						<key>_historyCapacity</key>
 						<integer>0</integer>
 						<key>bookmark</key>
-						<string>14D1DD9A13EABBE6001C77AB</string>
+						<string>14D1DD9E13EABD45001C77AB</string>
 						<key>history</key>
 						<array>
 							<string>1447F10C13E9BEA300B69898</string>
@@ -322,7 +322,8 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>4</integer>
+									<integer>10</integer>
+									<integer>7</integer>
 									<integer>2</integer>
 									<integer>0</integer>
 								</array>
@@ -365,7 +366,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>zinaApp.cpp</string>
+								<string>SampleRecorder.cpp</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -373,11 +374,11 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>zinaApp.cpp</string>
+										<string>SampleRecorder.cpp</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>14D1DD9913EABBE6001C77AB</string>
+										<string>14D1DD9D13EABD45001C77AB</string>
 										<key>history</key>
 										<array>
 											<string>140023D112EC78C9001BC632</string>
@@ -418,9 +419,9 @@
 											<string>1471E53713E9AF6F00599390</string>
 											<string>1471E54413E9B2A100599390</string>
 											<string>1447F10713E9BEA300B69898</string>
-											<string>14D1DD9213EAB703001C77AB</string>
 											<string>14D1DD9313EAB703001C77AB</string>
-											<string>14D1DD9413EAB703001C77AB</string>
+											<string>14D1DD9B13EABD45001C77AB</string>
+											<string>14D1DD9C13EABD45001C77AB</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
