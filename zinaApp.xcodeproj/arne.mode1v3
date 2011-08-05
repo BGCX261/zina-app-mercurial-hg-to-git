@@ -197,48 +197,7 @@
 	<key>Notifications</key>
 	<array/>
 	<key>OpenEditors</key>
-	<array>
-		<dict>
-			<key>Content</key>
-			<dict>
-				<key>PBXProjectModuleGUID</key>
-				<string>14EAC63013E8577100EC5A07</string>
-				<key>PBXProjectModuleLabel</key>
-				<string>VideoController.cpp</string>
-				<key>PBXSplitModuleInNavigatorKey</key>
-				<dict>
-					<key>Split0</key>
-					<dict>
-						<key>PBXProjectModuleGUID</key>
-						<string>14EAC63113E8577100EC5A07</string>
-						<key>PBXProjectModuleLabel</key>
-						<string>VideoController.cpp</string>
-						<key>_historyCapacity</key>
-						<integer>0</integer>
-						<key>bookmark</key>
-						<string>14D1DDA013EABDCD001C77AB</string>
-						<key>history</key>
-						<array>
-							<string>1447F10C13E9BEA300B69898</string>
-						</array>
-					</dict>
-					<key>SplitCount</key>
-					<string>1</string>
-				</dict>
-				<key>StatusBarVisibility</key>
-				<true/>
-			</dict>
-			<key>Geometry</key>
-			<dict>
-				<key>Frame</key>
-				<string>{{0, 20}, {704, 940}}</string>
-				<key>PBXModuleWindowStatusBarHidden2</key>
-				<false/>
-				<key>RubberWindowFrame</key>
-				<string>0 56 704 981 0 0 1920 1058 </string>
-			</dict>
-		</dict>
-	</array>
+	<array/>
 	<key>PerspectiveWidths</key>
 	<array>
 		<integer>710</integer>
@@ -348,7 +307,7 @@
 							<real>286</real>
 						</array>
 						<key>RubberWindowFrame</key>
-						<string>380 153 1262 863 0 0 1920 1058 </string>
+						<string>425 153 1262 863 0 0 1920 1058 </string>
 					</dict>
 					<key>Module</key>
 					<string>PBXSmartGroupTreeModule</string>
@@ -378,7 +337,7 @@
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>14D1DD9F13EABDCD001C77AB</string>
+										<string>14D8C5D913EC1623004C6796</string>
 										<key>history</key>
 										<array>
 											<string>140023D112EC78C9001BC632</string>
@@ -421,7 +380,7 @@
 											<string>1447F10713E9BEA300B69898</string>
 											<string>14D1DD9313EAB703001C77AB</string>
 											<string>14D1DD9B13EABD45001C77AB</string>
-											<string>14D1DD9C13EABD45001C77AB</string>
+											<string>14D1DDA113EADED5001C77AB</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -435,7 +394,7 @@
 								<key>Frame</key>
 								<string>{{0, 0}, {954, 817}}</string>
 								<key>RubberWindowFrame</key>
-								<string>380 153 1262 863 0 0 1920 1058 </string>
+								<string>425 153 1262 863 0 0 1920 1058 </string>
 							</dict>
 							<key>Module</key>
 							<string>PBXNavigatorGroup</string>
@@ -455,7 +414,7 @@
 								<key>Frame</key>
 								<string>{{0, 822}, {954, 0}}</string>
 								<key>RubberWindowFrame</key>
-								<string>380 153 1262 863 0 0 1920 1058 </string>
+								<string>425 153 1262 863 0 0 1920 1058 </string>
 							</dict>
 							<key>Module</key>
 							<string>XCDetailModule</string>
@@ -479,9 +438,9 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>14D1DD6413EA9B4A001C77AB</string>
+				<string>14D8C5DA13EC1623004C6796</string>
 				<string>1CE0B1FE06471DED0097A5F4</string>
-				<string>14D1DD6513EA9B4A001C77AB</string>
+				<string>14D8C5DB13EC1623004C6796</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20506471E060097A5F4</string>
 			</array>
@@ -631,16 +590,11 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>14D1DD8613EAAC30001C77AB</string>
-		<string>14D1DD8713EAAC30001C77AB</string>
-		<string>1CD10A99069EF8BA00B06720</string>
 		<string>1400212B12EC6EB0001BC632</string>
-		<string>14EAC63013E8577100EC5A07</string>
-		<string>1C78EAAD065D492600B07095</string>
 		<string>/Users/arne/Workspace/openFrameworks/openFrameworks_0062/apps-arne/zina-app-online/zina-app-mercurial/zinaApp.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
-	<string>380 153 1262 863 0 0 1920 1058 </string>
+	<string>425 153 1262 863 0 0 1920 1058 </string>
 	<key>WindowToolsV3</key>
 	<array>
 		<dict>
@@ -717,7 +671,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>1400212B12EC6EB0001BC632</string>
-				<string>14D1DD6813EA9B4A001C77AB</string>
+				<string>14D8C5DC13EC1623004C6796</string>
 				<string>1CD0528F0623707200166675</string>
 				<string>XCMainBuildResultsModuleGUID</string>
 			</array>

@@ -64,6 +64,9 @@ public:
 	void setVolumeThumbs( float volume );
 	void setVolumeFull( float volume );
 	
+	void setShowMinutesPortal( bool _bool);
+	bool getShowMinutesPortal();
+	
 	VIDEO_MODE getMode();
 	
 private:
@@ -91,6 +94,8 @@ private:
 	string generateStationPath( int _stationId );
 	string generateVideoPath( int _stationId, int _videoNum, const string& _number, const string& _name, bool _thumb );
 	string getTimeRemainingString( float _position, float _duration );
+	
+	bool bShowMinutesPortal;
 };
 
 #endif

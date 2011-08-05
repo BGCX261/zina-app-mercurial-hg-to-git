@@ -38,6 +38,7 @@ SampleRecorder::~SampleRecorder(){
 void SampleRecorder::setup(ofxSoundStream & masterMAudio, int _recordingDuration){	
 	
 	recordingDuration = _recordingDuration;
+	volumeRecIntro = 0.0;			//is set through function setVolumeRecIntro() via gui
 	
 	left = new float[BUFFER_SIZE];
 	right = new float[BUFFER_SIZE];
@@ -67,9 +68,7 @@ void SampleRecorder::setup(ofxSoundStream & masterMAudio, int _recordingDuration
 	//--sound
 	recordingIntroduction.setMultiPlay(false);
 	recordingIntroduction.setLoop(false);
-	recordingIntroduction.setVolume(0.3);
 	recordingIntroduction.loadSound("sound/recIntro/recIntro.wav", false);
-
 }
 
 //--------------------------------------------------------------
@@ -271,3 +270,10 @@ void SampleRecorder::audioInputListener(ofxAudioEventArgs &args){
 		
 	}
 } 
+
+//--------------------------------------------------------------
+void SampleRecorder::setVolumeRecIntro(float _volume) {
+	volumeRecIntro = _volume;
+	
+	recordingIntroduction.setVolume(volumeRecIntro);
+}

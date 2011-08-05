@@ -42,6 +42,9 @@ public:
 	void startIntroduction();
 	void startRecording();
 	void stopRecording();
+	
+	//--setters
+	void setVolumeRecIntro(float _volume);
 
 	ofEvent<string> onLastRecordingFileName;
 	
@@ -61,6 +64,7 @@ private:
 	bool bIsRecording;
 	
 	int recordingDuration;
+	float volumeRecIntro;
 	
 	float * left;
 	float * right;

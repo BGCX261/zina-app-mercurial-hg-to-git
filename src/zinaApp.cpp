@@ -73,6 +73,7 @@ void zinaApp::setup(){
 	videoController.setup( newStationId );
 	videoController.setVolumeThumbs( gui.getValueF("VOLUME_THUMBS", 0) );
 	videoController.setVolumeFull( gui.getValueF("VOLUME_FULL", 0) );
+	videoController.setShowMinutesPortal( gui.getValueB("PORTAL_SHOW_MINUTES", 0));
 
 	//--audio composition-------------------------------------
 	audioComposition.setup( newStationId );
@@ -82,6 +83,7 @@ void zinaApp::setup(){
 	voiceInputStream.setDeviceId( 0 );
 	voiceInputStream.setup( 0, 2, this, SOUND_INPUT_SAMPLERATE, SOUND_INPUT_BUFFERSIZE, 4 );
 	sampleRecorder.setup( voiceInputStream , gui.getValueI("RECORDING_DURATION", 0) );
+	sampleRecorder.setVolumeRecIntro( gui.getValueF("VOLUME_REC_INTRO", 0) );
 	ofAddListener(sampleRecorder.onFinishedRecordingEvent, this, &zinaApp::onFinishedRecordingEvent);
 	ofAddListener(sampleRecorder.onFinishedIntroductionEvent, this, &zinaApp::onFinishedIntroductionEvent );
 	
@@ -291,7 +293,7 @@ void zinaApp::onFinishedIntroductionEvent(EventArgsIntroductionRecording & args)
 void zinaApp::setupGui(){
 
 	//--gui--begin
-	ofxControlPanel::setBackgroundColor(simpleColor(30, 30, 60, 100));
+	ofxControlPanel::setBackgroundColor(simpleColor(30, 30, 60, 150));
 	ofxControlPanel::setTextColor(simpleColor(220, 50, 50, 255));
 
 	gui.loadFont("MONACO.TTF", 12);
@@ -302,20 +304,36 @@ void zinaApp::setupGui(){
 	gui.setWhichPanel(0);
 	gui.setWhichColumn(0);
 
-	gui.addChartPlotter("appFrameRate", guiStatVarPointer("app fps", &appFrameRate, GUI_VAR_FLOAT, true, 2), 300, 100, 200, 10, 80);
+	gui.addChartPlotter("appFrameRate", guiStatVarPointer("app fps", &appFrameRate, GUI_VAR_FLOAT, true, 2), 300, 100, 200, 0, 70);
 
 	vector <guiVariablePointer> vars;
 	vars.push_back( guiVariablePointer("appFrameRate", &appFrameRate, GUI_VAR_FLOAT, 0) );
 	gui.addVariableLister("app vars", vars);
+	
+	//--
+	gui.addLabel("OPTIONAL SETTINGS");
 
+	gui.addToggle("Voice Recording On", "VOICE_RECORDING_OPTION", true);
+	ofAddListener(gui.createEventGroup("VOICE_RECORDING_OPTION"), this, &zinaApp::guiEventHandler);
+	
+	gui.addToggle("Show Minutes Portal On", "PORTAL_SHOW_MINUTES", true);
+	ofAddListener(gui.createEventGroup("PORTAL_SHOW_MINUTES"), this, &zinaApp::guiEventHandler);
+
+	//--
+	gui.addLabel("APP SETTINGS");
+	
 	gui.addToggle("togglePresentation (p)", "TOGGLE_PRESENTATION", 0);
 	ofAddListener(gui.createEventGroup("TOGGLE_PRESENTATION"), this, &zinaApp::guiEventHandler);
 
 	gui.addToggle("Quit Application (q)", "QUIT_APPLICATION", 0);
 	ofAddListener(gui.createEventGroup("QUIT_APPLICATION"), this, &zinaApp::guiEventHandler);
 	
+	
+	
 	//--column
 	gui.setWhichColumn(2);
+	
+	gui.addLabel("VIDEO SETTINGS");
 
 	gui.addSlider("Volume Full", "VOLUME_FULL", 80.0, 0.0, 100.0, true);
 	ofAddListener(gui.createEventGroup("VOLUME_FULL"), this, &zinaApp::guiEventHandler);
@@ -326,18 +344,22 @@ void zinaApp::setupGui(){
     gui.addSlider("Volume Aura", "VOLUME_AURA", 0.80, 0.0, 1.0, false);
 	ofAddListener(gui.createEventGroup("VOLUME_AURA"), this, &zinaApp::guiEventHandler);
 	
+	gui.addLabel("DAIL SETTINGS");
+	
 	gui.addSlider("Volume Dial Tones", "VOLUME_DIAL_TONES", 0.10, 0.0, 1.0, false);
 	ofAddListener(gui.createEventGroup("VOLUME_DIAL_TONES"), this, &zinaApp::guiEventHandler);
 	
 	gui.addSlider("DialDelay", "DIAL_DELAY", 50.0, 10.0, 300.0, true);
 	ofAddListener(gui.createEventGroup("DIAL_DELAY"), this, &zinaApp::guiEventHandler);
 	
+	gui.addLabel("RECORDING SETTINGS");
+	
+	gui.addSlider("Volume Rec Intro", "VOLUME_REC_INTRO", 0.50, 0.0, 1.0, false);
+	ofAddListener(gui.createEventGroup("VOLUME_REC_INTRO"), this, &zinaApp::guiEventHandler);
+	
 	gui.addSlider("Recording Duration", "RECORDING_DURATION", 60.0, 30.0, 160.0, true);
 	ofAddListener(gui.createEventGroup("RECORDING_DURATION"), this, &zinaApp::guiEventHandler);
-	
-	//-- button recording option
-	gui.addToggle("Voice Recording On", "VOICE_RECORDING_OPTION", true);
-	ofAddListener(gui.createEventGroup("VOICE_RECORDING_OPTION"), this, &zinaApp::guiEventHandler);
+
 	
 	//--column
 	gui.setWhichColumn(4);
@@ -385,6 +407,11 @@ void zinaApp::guiEventHandler(guiCallbackData & data){
 		gui.setValueB("QUIT_APPLICATION", false);
 		this->togglePresentationMode();
 	}
+	
+	else if( data.isElement( "PORTAL_SHOW_MINUTES" ) ){
+		videoController.setShowMinutesPortal( ! videoController.getShowMinutesPortal() );
+		gui.setValueB("PORTAL_SHOW_MINUTES", videoController.getShowMinutesPortal());
+	}
 
 	else if( data.isElement( "QUIT_APPLICATION" ) && data.getInt(0) == 1 ){
 		gui.setValueB("QUIT_APPLICATION", false);
@@ -400,7 +427,7 @@ void zinaApp::guiEventHandler(guiCallbackData & data){
 		bRecordingOptionOn = !bRecordingOptionOn;
 		gui.setValueB("VOICE_RECORDING_OPTION", bRecordingOptionOn);
 	}
-	
+
 	else if( data.isElement( "VOLUME_THUMBS" ) ){
 		videoController.setVolumeThumbs( data.getInt(0) );
 	}
@@ -417,10 +444,13 @@ void zinaApp::guiEventHandler(guiCallbackData & data){
 		keypadController.setVolume( data.getFloat(0) );
 	}
 	
+	else if( data.isElement( "VOLUME_REC_INTRO" ) ){
+		sampleRecorder.setVolumeRecIntro( data.getFloat(0) );
+	}
+	
 	else if( data.isElement( "DIAL_DELAY" ) ){
 		keypadController.setDailDelay( data.getInt(0) );
 	}
-	
 	
 	else if( data.isElement( "STATION_ID" ) ){
 		gui.saveSettings();
@@ -572,6 +602,11 @@ void zinaApp::keyPressed(int key){
 		
 		if (key == 'r' || key == 'R' ) {
 			bShowFPS = !bShowFPS;
+		}
+		
+		if (key == 'm' || key == 'M' ) {
+			videoController.setShowMinutesPortal( ! videoController.getShowMinutesPortal() );
+			gui.setValueB("PORTAL_SHOW_MINUTES", videoController.getShowMinutesPortal());
 		}
 		
 		if (key == 'o' || key == 'O') {

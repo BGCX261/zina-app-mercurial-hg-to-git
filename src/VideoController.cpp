@@ -71,6 +71,8 @@ void VideoController::setup(int _stationId)
 	fullFont.loadFont( FONT_FILENAME, FONT_SIZE_FULL, true, true, false );
 	timeFont.loadFont( FONT_FILENAME, FONT_SIZE_TIME, true, true, false );
 	returnFont.loadFont( FONT_FILENAME, FONT_SIZE_RETURN_TEXT, true, true, false );
+	
+	bShowMinutesPortal = true;
 
 	setStationID(_stationId);
 	setMode( VM_PORTAL );
@@ -129,26 +131,33 @@ void VideoController::draw()
 					int numberY = videoPositions[i].y + primaryNumberPosition.y;
 					int nameX = videoPositions[i].x + primaryNamePosition.x;
 					int nameY = videoPositions[i].y + primaryNamePosition.y;
-					int durationX = videoPositions[i].x + primaryDurationPosition.x;
-					int durationY = videoPositions[i].y + primaryDurationPosition.y;
-					
+
 					zinaApp::drawShadedString( primaryFont, videos[i].number, numberX, numberY, 2, 2 );
 					zinaApp::drawShadedString( primaryFont, videos[i].name, nameX, nameY, 2, 2 );
-					string durationString = getTimeRemainingString(0.0, videos[i].thumbVideo.getDuration() );
-					zinaApp::drawShadedString( sideDurationFont, durationString, durationX, durationY, 2, 2 );
+					
+					if (getShowMinutesPortal()) {
+						int durationX = videoPositions[i].x + primaryDurationPosition.x;
+						int durationY = videoPositions[i].y + primaryDurationPosition.y;
+						string durationString = getTimeRemainingString(0.0, videos[i].thumbVideo.getDuration() );
+						zinaApp::drawShadedString( sideDurationFont, durationString, durationX, durationY, 2, 2 );
+					}
 					
 				} else {
 					int numberX = videoPositions[i].x + sideNumberPosition.x;
 					int numberY = videoPositions[i].y + sideNumberPosition.y;
 					int nameX = videoPositions[i].x + sideNamePosition.x;
 					int nameY = videoPositions[i].y + sideNamePosition.y;
-					int durationX = videoPositions[i].x + sideDurationPosition.x;
-					int durationY = videoPositions[i].y + sideDurationPosition.y;
 					
 					zinaApp::drawShadedString( sideFont, videos[i].number, numberX, numberY, 1, 1 );
 					zinaApp::drawShadedString( sideFont, videos[i].name, nameX, nameY, 1, 1 );
-					string durationString = getTimeRemainingString(0.0, videos[i].thumbVideo.getDuration() );
-					zinaApp::drawShadedString( sideDurationFont, durationString, durationX, durationY); 
+					
+					if (getShowMinutesPortal()) {
+						int durationX = videoPositions[i].x + sideDurationPosition.x;
+						int durationY = videoPositions[i].y + sideDurationPosition.y;
+						string durationString = getTimeRemainingString(0.0, videos[i].thumbVideo.getDuration() );
+						zinaApp::drawShadedString( sideDurationFont, durationString, durationX, durationY); 
+					}
+					
 				}
 			}
 			break;
@@ -449,3 +458,15 @@ string VideoController::getTimeRemainingString( float _position, float _duration
 	
 	return string( timeText );
 }
+
+//-------------------------------------------------------
+void VideoController::setShowMinutesPortal(bool _bool) {
+	bShowMinutesPortal = _bool;
+}
+
+//-------------------------------------------------------
+bool VideoController::getShowMinutesPortal() {
+	return bShowMinutesPortal;
+}
+	
+	
