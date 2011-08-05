@@ -91,7 +91,7 @@ void zinaApp::setup(){
 	disconnectTone.setMultiPlay(false);
 	disconnectTone.stop();
 	disconnectTone.bLoop = false;
-	disconnectTone.setVolume(0.5);
+	disconnectTone.setVolume( gui.getValueF("VOLUME_DIAL_TONES", 0));
 	disconnectTone.loadSound("sound/disconnectTone/disconnectTone.wav");
 	
 	//--fps------------------------------------------
@@ -333,25 +333,25 @@ void zinaApp::setupGui(){
 	//--column
 	gui.setWhichColumn(2);
 
-	gui.addSlider("Volume Full", "VOLUME_FULL", 80.0, 0.0, 100.0, true);
+	gui.addSlider("Volume Full", "VOLUME_FULL", 60.0, 0.0, 100.0, true);
 	ofAddListener(gui.createEventGroup("VOLUME_FULL"), this, &zinaApp::guiEventHandler);
 	
-	gui.addSlider("Volume Thumbs", "VOLUME_THUMBS", 12.0, 0.0, 100.0, true);
+	gui.addSlider("Volume Thumbs", "VOLUME_THUMBS", 10.0, 0.0, 100.0, true);
 	ofAddListener(gui.createEventGroup("VOLUME_THUMBS"), this, &zinaApp::guiEventHandler);
 	
-    gui.addSlider("Volume Aura", "VOLUME_AURA", 0.80, 0.0, 1.0, false);
+    gui.addSlider("Volume Aura", "VOLUME_AURA", 0.75, 0.0, 1.0, false);
 	ofAddListener(gui.createEventGroup("VOLUME_AURA"), this, &zinaApp::guiEventHandler);
 	
-	gui.addSlider("Volume Dial Tones", "VOLUME_DIAL_TONES", 0.10, 0.0, 1.0, false);
+	gui.addSlider("Volume Dial Tones", "VOLUME_DIAL_TONES", 0.15, 0.0, 1.0, false);
 	ofAddListener(gui.createEventGroup("VOLUME_DIAL_TONES"), this, &zinaApp::guiEventHandler);
 	
 	gui.addSlider("DialDelay", "DIAL_DELAY", 50.0, 10.0, 300.0, true);
 	ofAddListener(gui.createEventGroup("DIAL_DELAY"), this, &zinaApp::guiEventHandler);
 	
-	gui.addSlider("Volume Rec Intro", "VOLUME_REC_INTRO", 0.50, 0.0, 1.0, false);
+	gui.addSlider("Volume Rec Intro", "VOLUME_REC_INTRO", 0.30, 0.0, 1.0, false);
 	ofAddListener(gui.createEventGroup("VOLUME_REC_INTRO"), this, &zinaApp::guiEventHandler);
 	
-	gui.addSlider("Recording Duration", "RECORDING_DURATION", 60.0, 30.0, 160.0, true);
+	gui.addSlider("Recording Duration", "RECORDING_DURATION", 90.0, 30.0, 160.0, true);
 	ofAddListener(gui.createEventGroup("RECORDING_DURATION"), this, &zinaApp::guiEventHandler);
 
 	
@@ -436,6 +436,7 @@ void zinaApp::guiEventHandler(guiCallbackData & data){
 	
 	else if( data.isElement( "VOLUME_DIAL_TONES" ) ){
 		keypadController.setVolume( data.getFloat(0) );
+		disconnectTone.setVolume( data.getFloat(0) );
 	}
 	
 	else if( data.isElement( "VOLUME_REC_INTRO" ) ){
