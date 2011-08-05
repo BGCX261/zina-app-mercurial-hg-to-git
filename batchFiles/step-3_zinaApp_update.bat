@@ -1,6 +1,6 @@
 
 ::hg update
-cd c:\Workspace\openFrameworks_0062\apps_arne\zinaMercurial\zina-app-mercurial
+cd C:\Workspace\openFrameworks_0062\apps_arne\zinaMercurial
 
 hg pull
 
