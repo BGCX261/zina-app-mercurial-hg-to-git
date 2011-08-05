@@ -218,6 +218,8 @@ void SampleRecorder::stopRecording(){
 		right[i] = 0;
 	}
 	
+	mAudio_bufferCounter = 0;
+	
 	//introduction text
 	recordingIntroduction.stop();
 	recordingIntroduction.setPosition(0.0);

@@ -337,7 +337,7 @@
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>14D8C5D913EC1623004C6796</string>
+										<string>14D8C60313EC31B3004C6796</string>
 										<key>history</key>
 										<array>
 											<string>140023D112EC78C9001BC632</string>
@@ -369,18 +369,18 @@
 											<string>1471E3B513E9904400599390</string>
 											<string>1471E3B913E9904400599390</string>
 											<string>1471E46C13E9956700599390</string>
-											<string>1471E4A813E99CFA00599390</string>
-											<string>1471E4EC13E9A56600599390</string>
-											<string>1471E52D13E9ACA800599390</string>
-											<string>1471E52E13E9ACA800599390</string>
 											<string>1471E53413E9AF6F00599390</string>
 											<string>1471E53513E9AF6F00599390</string>
 											<string>1471E53713E9AF6F00599390</string>
 											<string>1471E54413E9B2A100599390</string>
-											<string>1447F10713E9BEA300B69898</string>
-											<string>14D1DD9313EAB703001C77AB</string>
-											<string>14D1DD9B13EABD45001C77AB</string>
-											<string>14D1DDA113EADED5001C77AB</string>
+											<string>14D8C5FB13EC31B3004C6796</string>
+											<string>14D8C5FC13EC31B3004C6796</string>
+											<string>14D8C5FD13EC31B3004C6796</string>
+											<string>14D8C5FE13EC31B3004C6796</string>
+											<string>14D8C5FF13EC31B3004C6796</string>
+											<string>14D8C60013EC31B3004C6796</string>
+											<string>14D8C60113EC31B3004C6796</string>
+											<string>14D8C60213EC31B3004C6796</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -590,7 +590,11 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
+		<string>14D8C60413EC31B3004C6796</string>
+		<string>14D8C60513EC31B3004C6796</string>
+		<string>1CD10A99069EF8BA00B06720</string>
 		<string>1400212B12EC6EB0001BC632</string>
+		<string>1C78EAAD065D492600B07095</string>
 		<string>/Users/arne/Workspace/openFrameworks/openFrameworks_0062/apps-arne/zina-app-online/zina-app-mercurial/zinaApp.xcodeproj</string>
 	</array>
 	<key>WindowString</key>
@@ -610,12 +614,14 @@
 					<key>Dock</key>
 					<array>
 						<dict>
+							<key>BecomeActive</key>
+							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
 								<string>1CD0528F0623707200166675</string>
 								<key>PBXProjectModuleLabel</key>
-								<string></string>
+								<string>VideoController.cpp</string>
 								<key>StatusBarVisibility</key>
 								<true/>
 							</dict>
@@ -793,13 +799,13 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>1CD10A99069EF8BA00B06720</string>
-				<string>14D1DD7E13EAAC30001C77AB</string>
+				<string>14D8C5E913EC21C8004C6796</string>
 				<string>1C162984064C10D400B95A72</string>
-				<string>14D1DD7F13EAAC30001C77AB</string>
-				<string>14D1DD8013EAAC30001C77AB</string>
-				<string>14D1DD8113EAAC30001C77AB</string>
-				<string>14D1DD8213EAAC30001C77AB</string>
-				<string>14D1DD8313EAAC30001C77AB</string>
+				<string>14D8C5EA13EC21C8004C6796</string>
+				<string>14D8C5EB13EC21C8004C6796</string>
+				<string>14D8C5EC13EC21C8004C6796</string>
+				<string>14D8C5ED13EC21C8004C6796</string>
+				<string>14D8C5EE13EC21C8004C6796</string>
 			</array>
 			<key>ToolbarConfiguration</key>
 			<string>xcode.toolbar.config.debugV3</string>
@@ -955,7 +961,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>1C78EAAD065D492600B07095</string>
-				<string>14D1DD8413EAAC30001C77AB</string>
+				<string>14D8C5EF13EC21C8004C6796</string>
 				<string>1C78EAAC065D492600B07095</string>
 			</array>
 			<key>ToolbarConfiguration</key>
