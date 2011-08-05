@@ -332,8 +332,6 @@ void zinaApp::setupGui(){
 	
 	//--column
 	gui.setWhichColumn(2);
-	
-	gui.addLabel("VIDEO SETTINGS");
 
 	gui.addSlider("Volume Full", "VOLUME_FULL", 80.0, 0.0, 100.0, true);
 	ofAddListener(gui.createEventGroup("VOLUME_FULL"), this, &zinaApp::guiEventHandler);
@@ -344,15 +342,11 @@ void zinaApp::setupGui(){
     gui.addSlider("Volume Aura", "VOLUME_AURA", 0.80, 0.0, 1.0, false);
 	ofAddListener(gui.createEventGroup("VOLUME_AURA"), this, &zinaApp::guiEventHandler);
 	
-	gui.addLabel("DAIL SETTINGS");
-	
 	gui.addSlider("Volume Dial Tones", "VOLUME_DIAL_TONES", 0.10, 0.0, 1.0, false);
 	ofAddListener(gui.createEventGroup("VOLUME_DIAL_TONES"), this, &zinaApp::guiEventHandler);
 	
 	gui.addSlider("DialDelay", "DIAL_DELAY", 50.0, 10.0, 300.0, true);
 	ofAddListener(gui.createEventGroup("DIAL_DELAY"), this, &zinaApp::guiEventHandler);
-	
-	gui.addLabel("RECORDING SETTINGS");
 	
 	gui.addSlider("Volume Rec Intro", "VOLUME_REC_INTRO", 0.50, 0.0, 1.0, false);
 	ofAddListener(gui.createEventGroup("VOLUME_REC_INTRO"), this, &zinaApp::guiEventHandler);
