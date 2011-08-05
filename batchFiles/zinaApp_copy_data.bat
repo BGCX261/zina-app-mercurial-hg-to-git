@@ -10,13 +10,15 @@ xcopy e:\ZINA_TO_NETBOOK\Software c:\Software /D /E /C /R /I /K /Y
 mkdir c:\Workspace
 xcopy e:\ZINA_TO_NETBOOK\Workspace c:\Workspace /D /E /C /R /I /K /Y
 
+
+
 ::copy \STARTUP LNK
-xcopy "C:\Workspace\START ZINA APP.lnk" "C:\Users\%username%\Desktop" /D /E /C /R /I /K /Y
 
-xcopy "C:\Workspace\START ZINA APP.lnk" "C:\Users\%username%\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup" /D /E /C /R /I /K /Y
+copy "C:\Workspace\START ZINA APP.lnk" "C:\Users\%username%\Desktop"
 
-::clone \zinaMercurial from google code
-hg clone https://arneboon@code.google.com/p/zina-app-mercurial C:\Workspace\openFrameworks_0062\apps_arne\zinaMercurial\
+
+
+copy "C:\Workspace\START ZINA APP.lnk" "C:\Users\%username%\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup"
 
 ::copy \data\stations
 mkdir C:\Workspace\openFrameworks_0062\apps_arne\zinaMercurial\bin\data\stations
@@ -26,6 +28,8 @@ xcopy E:\ZINA_TO_NETBOOK\COPY_TO_DATA_FOLDER\stations C:\Workspace\openFramework
 mkdir C:\Workspace\openFrameworks_0062\apps_arne\zinaMercurial\bin\data\sound
 xcopy E:\ZINA_TO_NETBOOK\COPY_TO_DATA_FOLDER\sound C:\Workspace\openFrameworks_0062\apps_arne\zinaMercurial\bin\data\sound /D /E /C /R /I /K /Y
 
+::clone \zinaMercurial from google code
+::hg clone https://arneboon@code.google.com/p/zina-app-mercurial C:\Workspace\openFrameworks_0062\apps_arne\zinaMercurial\
 
 
 
