@@ -12,3 +12,6 @@ xcopy E:\ZINA_TO_NETBOOK\COPY_TO_DATA_FOLDER\stations C:\Workspace\openFramework
 ::copy \data\sound
 mkdir C:\Workspace\openFrameworks_0062\apps_arne\zinaMercurial\bin\data\sound
 xcopy E:\ZINA_TO_NETBOOK\COPY_TO_DATA_FOLDER\sound C:\Workspace\openFrameworks_0062\apps_arne\zinaMercurial\bin\data\sound /D /E /C /R /I /K /Y
+
+::copy link to workbench to desktop
+copy "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\TortoiseHg\TortoiseHg Workbench.lnk" "C:\Users\%username%\Desktop"
