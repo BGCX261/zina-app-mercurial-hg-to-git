@@ -333,7 +333,7 @@ void zinaApp::setupGui(){
 	//--column
 	gui.setWhichColumn(2);
 
-	gui.addSlider("Volume Full", "VOLUME_FULL", 60.0, 0.0, 100.0, true);
+	gui.addSlider("Volume Full", "VOLUME_FULL", 40.0, 0.0, 100.0, true);
 	ofAddListener(gui.createEventGroup("VOLUME_FULL"), this, &zinaApp::guiEventHandler);
 	
 	gui.addSlider("Volume Thumbs", "VOLUME_THUMBS", 10.0, 0.0, 100.0, true);
