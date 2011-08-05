@@ -17,4 +17,4 @@ xcopy E:\ZINA_TO_NETBOOK\COPY_TO_DATA_FOLDER\sound C:\Workspace\openFrameworks_0
 copy "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\TortoiseHg\TortoiseHg Workbench.lnk" "C:\Users\%username%\Desktop"
 
 ::copy link to workbench to desktop
-copy "C:\Workspace\openFrameworks_0062\apps_arne\zinaMercurial\batchFiles\step-3_zinaApp_update.bat" "C:\Users\%username%\Desktop"
+copy "C:\Workspace\openFrameworks_0062\apps_arne\zinaMercurial\batchFiles\ZINA APP UPDATE.bat" "C:\Users\%username%\Desktop"
