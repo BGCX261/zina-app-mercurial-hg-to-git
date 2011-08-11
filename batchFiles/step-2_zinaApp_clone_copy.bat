@@ -14,15 +14,15 @@ mkdir C:\Workspace\openFrameworks_0062\apps_arne\zinaMercurial\zina-app-mercuria
 xcopy E:\ZINA_TO_NETBOOK\COPY_TO_DATA_FOLDER\sound C:\Workspace\openFrameworks_0062\apps_arne\zinaMercurial\zina-app-mercurial\bin\data\sound /D /E /C /R /I /K /Y
 
 ::copy link to workbench to desktop
-copy "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\TortoiseHg\TortoiseHg Workbench.lnk" "C:\Users\%username%\Desktop"
+copy "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\TortoiseHg\TortoiseHg Workbench.lnk" "C:\Users\%username%\Desktop" /Y
 
 ::copy batch to update to desktop
-copy "C:\Workspace\openFrameworks_0062\apps_arne\zinaMercurial\zina-app-mercurial\batchFiles\ZINA_APP_UPDATE.bat" "C:\Users\%username%\Desktop"
+copy "C:\Workspace\openFrameworks_0062\apps_arne\zinaMercurial\zina-app-mercurial\batchFiles\ZINA_APP_UPDATE.bat" "C:\Users\%username%\Desktop" /Y
 
 
 
 ::copy batch to copy recorings to desktop
-copy "C:\Workspace\openFrameworks_0062\apps_arne\zinaMercurial\zina-app-mercurial\batchFiles\COPY_RECORDINGS_TO_DRIVE.bat" "C:\Users\%username%\Desktop"
+copy "C:\Workspace\openFrameworks_0062\apps_arne\zinaMercurial\zina-app-mercurial\batchFiles\COPY_RECORDINGS_TO_DRIVE.bat" "C:\Users\%username%\Desktop" /Y
 
 ::copy driver remover
-copy "C:\Workspace\openFrameworks_0062\apps_arne\zinaMercurial\zina-app-mercurial\Software\USBDiskEject_Beta4.exe" "C:\Users\%username%\Desktop"
+copy "C:\Software\USBDiskEject_Beta4.exe" "C:\Users\%username%\Desktop" /Y
