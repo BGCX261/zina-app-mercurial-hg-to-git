@@ -16,5 +16,8 @@ xcopy E:\ZINA_TO_NETBOOK\COPY_TO_DATA_FOLDER\sound C:\Workspace\openFrameworks_0
 ::copy link to workbench to desktop
 copy "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\TortoiseHg\TortoiseHg Workbench.lnk" "C:\Users\%username%\Desktop"
 
-::copy link to workbench to desktop
-copy "C:\Workspace\openFrameworks_0062\apps_arne\zinaMercurial\zina-app-mercurial\batchFiles\ZINA APP UPDATE.bat" "C:\Users\%username%\Desktop"
+::copy batch to update to desktop
+copy "C:\Workspace\openFrameworks_0062\apps_arne\zinaMercurial\zina-app-mercurial\batchFiles\ZINA_APP_UPDATE.bat" "C:\Users\%username%\Desktop"
+
+::copy batch to copy recorings to desktop
+copy "C:\Workspace\openFrameworks_0062\apps_arne\zinaMercurial\zina-app-mercurial\batchFiles\COPY_RECORDINGS_TO_DRIVE.bat" "C:\Users\%username%\Desktop"
