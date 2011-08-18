@@ -5,13 +5,13 @@
     <val_0>0.000000</val_0>
 </QUIT_APPLICATION>
 <VOLUME_THUMBS>
-    <val_0>10.000000</val_0>
+    <val_0>5.555556</val_0>
 </VOLUME_THUMBS>
 <VOLUME_FULL>
-    <val_0>40.555553</val_0>
+    <val_0>27.222221</val_0>
 </VOLUME_FULL>
 <VOLUME_AURA>
-    <val_0>0.750000</val_0>
+    <val_0>0.900000</val_0>
 </VOLUME_AURA>
 <VOLUME_DAIL_TONES>
     <val_0>0.100000</val_0>
@@ -23,7 +23,7 @@
     <val_0>5.000000</val_0>
 </SERIAL_ID>
 <VOLUME_DIAL_TONES>
-    <val_0>0.150000</val_0>
+    <val_0>0.105556</val_0>
 </VOLUME_DIAL_TONES>
 <DAIL_DELAY>
     <val_0>136.666672</val_0>
