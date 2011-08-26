@@ -71,7 +71,9 @@ void KeypadController::update()
 		this->blinkCounter->update();
 		if(this->blinkCounter->isCountComplete()) {
 			bBlink = !bBlink;
-			this->blinkCounter = new TimedCounter(blinkTime);
+			//this->blinkCounter = new TimedCounter(blinkTime);
+			this->blinkCounter->endCount();
+			this->blinkCounter->nextCount();
 			this->blinkCounter->startCount();
 		}
 	}
@@ -83,7 +85,8 @@ void KeypadController::update()
 			this->dialDelayCounter->endCount();
 			afterDialDelay();
 			dialDelay = (int) ofRandom(dialDelayMin, dialDelayMax);
-			this->dialDelayCounter = new TimedCounter(dialDelay);
+			//this->dialDelayCounter = new TimedCounter(dialDelay);
+			this->dialDelayCounter->nextCount();
 		}
 	}
 	
