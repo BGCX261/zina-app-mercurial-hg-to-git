@@ -16,6 +16,7 @@
 #include <windows.h>
 #endif
 
+
 class zinaApp : public ofBaseApp{
 
 	public:
@@ -107,6 +108,8 @@ class zinaApp : public ofBaseApp{
 		vector <string> vectorStationIds;
 	
 		vector <string> vectorSerialIds;
+	
+		vector<int> asciiKeys;
 
 };
 

@@ -107,6 +107,11 @@ void zinaApp::setup(){
 		gui.hide();
 		bShowFPS = true;
 	#endif
+	
+	//--ascii-- 48-57= 0-9
+	for (int i = 48; i < 58; i++) {
+		asciiKeys.push_back(i);
+	}
 }
 
 //--------------------------------------------------------------
@@ -571,12 +576,36 @@ void zinaApp::onLogEventMain(EventArgsLogger & args) {
 //--------------------------------------------------------------
 void zinaApp::keyPressed(int key){
 	
+	//----------------------------------------------
 	//--bKeySpacePressed: gui key's only work if SPACE is pressed
 	if (key == ' ') {
 		bKeySpacePressed = true;
 	}
 
 	if (bKeySpacePressed == true) {
+		
+		//--debug with keyboard-------------------------------------
+		EventArgsKeypad keyboardInput;
+		
+		//-ascii 0-9
+		for (int i = 0; i < (int) asciiKeys.size(); i++) {
+			if (key == asciiKeys[i]) {
+				keyboardInput.keypadNum = key;
+				onKeypadPressed( keyboardInput );
+			}
+		}
+		
+		//-ascii * # placed at - and +
+		if (key == '-' || key == '_' ) {
+			keyboardInput.keypadNum = '*';
+			onKeypadPressed( keyboardInput );
+		}
+		if (key == '=' || key == '+' ) {
+			keyboardInput.keypadNum = '#';
+			onKeypadPressed( keyboardInput );
+		}
+		
+		//-GUI KEYS--------------------------------------------------
 		
 		if (key == 'f' || key == 'F') {
 			ofToggleFullscreen();
