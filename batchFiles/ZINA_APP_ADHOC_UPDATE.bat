@@ -4,7 +4,7 @@
 ::hg update
 cd C:\Workspace\openFrameworks_0062\apps_arne\zinaMercurial\zina-app-mercurial
 
-hg pull
+hg pull zina-adhoc-url
 
 hg update
 
@@ -23,8 +23,3 @@ start OPERATIONS_BATCH.bat
 ::copy batch to update to desktop
 copy "C:\Workspace\openFrameworks_0062\apps_arne\zinaMercurial\zina-app-mercurial\batchFiles\ZINA_APP_UPDATE.bat" "C:\Users\%username%\Desktop" /Y
 copy "C:\Workspace\openFrameworks_0062\apps_arne\zinaMercurial\zina-app-mercurial\batchFiles\ZINA_APP_ADHOC_UPDATE.bat" "C:\Users\%username%\Desktop" /Y
-
-
-
-
-
