@@ -17,6 +17,11 @@
 
 #include <sndfile.h>
 
+#ifndef TARGET_WIN32
+# include <stdint.h>
+typedef uint8_t UInt8;
+#endif
+
 #define SAMPLE_RATE				44100
 #define BUFFER_SIZE				256
 //#define RECORDING_DURATION		120

@@ -7,7 +7,7 @@
  *
  */
 
-#include "tonesPlayer.h"
+#include "TonesPlayer.h"
 
 #include "ofMain.h"
 #include <iostream>
@@ -25,13 +25,13 @@ void TonesPlayer::setup(){
 	for (int i = 0; i < NUM_SOUND_PLAYERS; i++) {
 		tonesPlayers[i].setMultiPlay(false);
 		tonesPlayers[i].stop();
-		tonesPlayers[i].bLoop = false;
+		tonesPlayers[i].setLoop(false);
 		tonesPlayers[i].loadSound( "sound/dtmfTones/DTMF-" + ofToString(i) + ".wav");
 	}
 
 	dialTone.setMultiPlay(false);
 	dialTone.stop();
-	dialTone.bLoop = true;
+	dialTone.setLoop(true);
 	dialTone.loadSound("sound/dtmfTones/DTMF-dialTone.wav");
 	//dialTone.setVolume(0.7);
 

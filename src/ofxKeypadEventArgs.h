@@ -13,7 +13,8 @@
 #include "ofMain.h"
 #include "ofEvents.h"
 
-class argsKeypadNums : public ofEventArgs
+//class argsKeypadNums : public ofEventArgs
+class ofxKeypadEventArgs : public ofEventArgs
 {
 public:
 	int keypadNum;	

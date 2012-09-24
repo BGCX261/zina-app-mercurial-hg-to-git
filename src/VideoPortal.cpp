@@ -23,7 +23,7 @@ VideoPortal::VideoPortal()
 //- SETUP ------------------------------------------------------
 //--------------------------------------------------------------
 void VideoPortal::setup(int _id){	
-	bVideoLoaded = videoPortal.bLoaded;
+	bVideoLoaded = videoPortal.isLoaded();
 	bVideoPlaying = videoPortal.isPlaying();
 	
 	videoPortalId = _id;
@@ -39,10 +39,10 @@ void VideoPortal::setup(int _id){
 //--------------------------------------------------------------
 void VideoPortal::update() {
 	
-	bVideoLoaded = videoPortal.bLoaded;
+	bVideoLoaded = videoPortal.isLoaded();
 	bVideoPlaying = videoPortal.isPlaying();
 	
-	if (videoPortal.bLoaded) {	
+	if (videoPortal.isLoaded()) {	
 		videoPortal.idleMovie();
 	}
 }
@@ -52,7 +52,7 @@ void VideoPortal::update() {
 //--------------------------------------------------------------
 void VideoPortal::draw() {
 	
-	if (videoPortal.bLoaded) {
+	if (videoPortal.isLoaded()) {
 		int videoWidth = (ofGetHeight() * 640) / 480;
 		videoPortal.draw(x, y, w, h);
 	}
@@ -102,14 +102,14 @@ void VideoPortal::load(string _filename) {
 
 //--------------------------------------------------------------
 void VideoPortal::close() {
-	if(videoPortal.bLoaded) {
+	if(videoPortal.isLoaded()) {
 		videoPortal.close();
 	}	
 }
 
 //--------------------------------------------------------------
 void VideoPortal::play() {
-	if(videoPortal.bLoaded) {
+	if(videoPortal.isLoaded()) {
 		videoPortal.setLoopState(OF_LOOP_NORMAL);
 		videoPortal.play();
 	}	

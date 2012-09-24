@@ -5,6 +5,9 @@
 #include <functional>
 #include <iostream>
 
+//TEMP: crash handling
+#include <execinfo.h>
+
 #define SOUND_INPUT_SAMPLERATE 44100
 #define SOUND_INPUT_BUFFERSIZE 256
 
@@ -22,10 +25,49 @@ using namespace std;
 
 const string zinaApp::messageNumber = "0900123490";
 
+
+
+
+//TEMP: crash handler dumping backtrace
+void handler( int sig ) {
+	void *array[30];
+	size_t size;
+
+	//get void*'s for all entries on the stack
+	size = backtrace( array, 30 );
+
+	//print out all the frames to stderr
+	fprintf( stderr, "Error: signal %d:\n", sig );
+	backtrace_symbols_fd( array, size, 2 );
+	exit( 1 );
+}
+
+//TEMP: artificial stack creation
+void baz() {
+	int *foo = (int*)-1; //make a bad pointer
+	printf("%d\n", *foo ); //causes segfault
+}
+void bar() { baz(); }
+void foo() { bar(); }
+
+
+
+
+
+
 //--------------------------------------------------------------
 //-- ZINA APP --------------------------------------------------
 //--------------------------------------------------------------
 void zinaApp::setup(){
+	
+	
+	
+	//TEMP: backtrace handler + test
+	signal( SIGSEGV, handler );
+//  foo();
+	
+	
+	
 	cout << "---zinaApp---" << endl;
 
 	//--of
@@ -90,7 +132,7 @@ void zinaApp::setup(){
 	//--disconnect tone------------------------------
 	disconnectTone.setMultiPlay(false);
 	disconnectTone.stop();
-	disconnectTone.bLoop = false;
+	disconnectTone.setLoop(false);
 	disconnectTone.setVolume( gui.getValueF("VOLUME_DIAL_TONES", 0));
 	disconnectTone.loadSound("sound/disconnectTone/disconnectTone.wav");
 	

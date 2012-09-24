@@ -1,5 +1,6 @@
 #pragma once
 
+#include <assert.h>
 #include "guiBaseObject.h"
 #include "guiColor.h"
 #include "simpleColor.h"

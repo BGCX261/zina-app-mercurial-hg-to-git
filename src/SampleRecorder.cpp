@@ -74,7 +74,7 @@ void SampleRecorder::setup(ofxSoundStream & masterMAudio, int _recordingDuration
 //--------------------------------------------------------------
 void SampleRecorder::update(){
 	
-	if (recordingIntroduction.bLoadedOk) {
+	if (recordingIntroduction.isLoaded()) {
 		if ( recordingIntroduction.getIsPlaying() ) {			
 			if (recordingIntroduction.getPosition() > 0.96) {
 			

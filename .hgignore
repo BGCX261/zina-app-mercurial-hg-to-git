@@ -1,0 +1,4 @@
+obj
+bin/*.app
+bin/data/stations
+bin/data/sound

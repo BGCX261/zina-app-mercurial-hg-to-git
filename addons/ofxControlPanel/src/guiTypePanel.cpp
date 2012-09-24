@@ -68,7 +68,7 @@ bool guiTypePanel::checkHit(float x, float y, bool isRelative){
 				}
 			}
 		}
-
+				
 		return true;
 	}
 	return false;
@@ -173,11 +173,11 @@ void guiTypePanel::removeElement( guiBaseObject* element )
 			break;
 		}
 	}
-	//assert( found );
+	assert( found );
 
 }
 
-void guiTypePanel::addSpace( int height )
+void guiTypePanel::addSpace( int height ) 
 {
 	columns[col].y += height;
 }
@@ -195,7 +195,7 @@ void guiTypePanel::addElement( guiBaseObject * element ){
 	columns[col].y += element->getHeight() + spacingAmntY;
 
 	float checkWidth = element->getWidth();
-
+		
 	if(checkWidth >= columns[col].width && !element->bRemoveFromLayout ){
 		float amnt = checkWidth - columns[col].width;
 		columns[col].width += amnt;
@@ -203,7 +203,7 @@ void guiTypePanel::addElement( guiBaseObject * element ){
 		for(unsigned int i = col+1; i < columns.size(); i++){
 			columns[i].x += amnt;
 		}
-
+		
 	}
 
 	//see if we need to resize!

@@ -21,7 +21,7 @@ VideoFull::VideoFull()
 
 //--------------------------------------------------------------
 void VideoFull::setup(){	
-	bVideoLoaded = videoFull.bLoaded;
+	bVideoLoaded = videoFull.isLoaded();
 	bVideoPlaying = videoFull.isPlaying();
 	bVideoMovieDone = false;
 }
@@ -29,10 +29,10 @@ void VideoFull::setup(){
 //--------------------------------------------------------------
 void VideoFull::update() {
 	
-	bVideoLoaded = videoFull.bLoaded;
+	bVideoLoaded = videoFull.isLoaded();
 	bVideoPlaying = videoFull.isPlaying();
 	
-	if (videoFull.bLoaded) {
+	if (videoFull.isLoaded()) {
 		bVideoMovieDone = videoFull.getIsMovieDone();
 		
 		videoFull.idleMovie();
@@ -50,7 +50,7 @@ void VideoFull::update() {
 //--------------------------------------------------------------
 void VideoFull::draw() {
 	
-	if (videoFull.bLoaded) {
+	if (videoFull.isLoaded()) {
 		int videoWidth = (ofGetHeight() * 640) / 480;
 		videoFull.draw( (ofGetWidth()/2 ) - (videoWidth/2), 0, videoWidth, ofGetHeight());
 	}

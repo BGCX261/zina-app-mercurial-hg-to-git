@@ -1,5 +1,4 @@
-#ifndef SIMPLE_FILE_LISTER
-#define SIMPLE_FILE_LISTER
+#pragma once
 
 #include "ofMain.h"
 #include "ofxDirList.h"
@@ -10,7 +9,7 @@ typedef struct{
 }entry;
 
 
-class simpleFileLister : public ofxDirList {
+class simpleFileLister : public ofxDirList{
 
      public:
 
@@ -30,7 +29,7 @@ class simpleFileLister : public ofxDirList {
         void setSelectedFile(int which);
         string getSelectedName();
         string getSelectedPath();
-
+		
         int  selected;
         bool selectedChanged;
         bool bRevSort;
@@ -39,5 +38,3 @@ class simpleFileLister : public ofxDirList {
 
         vector <entry> entries;
 };
-
-#endif

@@ -85,7 +85,7 @@ void VideoController::update()
 			
 		case VM_PORTAL:
 			for ( int i = 0; i < NUM_VIDEOS; i++ ) {
-				if ( videos[i].thumbVideo.bLoaded ) {
+				if ( videos[i].thumbVideo.isLoaded() ) {
 					if ( ! videos[i].thumbVideo.isPlaying() ) videos[i].thumbVideo.play();
 					videos[i].thumbVideo.idleMovie();
 				}
@@ -96,7 +96,7 @@ void VideoController::update()
 			if ( fullModeVideoIndex >= 0 && fullModeVideoIndex < NUM_VIDEOS ) {
 				ofVideoPlayer& fvPlayer = videos[fullModeVideoIndex].fullVideo;
 				
-				if ( fvPlayer.bLoaded ) {
+				if ( fvPlayer.isLoaded() ) {
 					if ( fvPlayer.isPlaying() && fvPlayer.getIsMovieDone() ) {
 						setMode( VM_PORTAL );
 					} else {
@@ -121,7 +121,7 @@ void VideoController::draw()
 	switch ( mode ) {
 		case VM_PORTAL:
 			for ( int i = 0; i < NUM_VIDEOS; i++ ) {
-				if ( videos[i].thumbVideo.bLoaded ) {
+				if ( videos[i].thumbVideo.isLoaded() ) {
 					videos[i].thumbVideo.draw(videoPositions[i].x, videoPositions[i].y,
 																		videoSizes[i].x, videoSizes[i].y );
 				}
@@ -164,7 +164,7 @@ void VideoController::draw()
 		case VM_FULL:
 			if ( fullModeVideoIndex >= 0 && fullModeVideoIndex < NUM_VIDEOS ) {
 				videoInfo& vInfo = videos[fullModeVideoIndex];
-				if ( vInfo.fullVideo.bLoaded ) {
+				if ( vInfo.fullVideo.isLoaded() ) {
 					vInfo.fullVideo.draw( 0, 0, ofGetWidth(), ofGetHeight() );
 				}
 				
@@ -243,11 +243,11 @@ bool VideoController::prepareVideoForFullMode( const string& _number ) {
 		if ( fullModeVideoIndex != match ) {
 			ofVideoPlayer& prev = videos[fullModeVideoIndex].fullVideo;
 			ofVideoPlayer& curr = videos[match].fullVideo;
-			if ( prev.bLoaded && prev.isPlaying() ) {
+			if ( prev.isLoaded() && prev.isPlaying() ) {
 				prev.setPosition( 0.0f );
 				prev.stop();
 			}
-			if ( mode == VM_FULL && curr.bLoaded ) curr.play();
+			if ( mode == VM_FULL && curr.isLoaded() ) curr.play();
 		}
 		fullModeVideoIndex = match;
 	}
@@ -264,13 +264,13 @@ void VideoController::setMode( VIDEO_MODE _mode ) {
 	switch ( mode ) {
 		case VM_PORTAL:
 			if ( fullModeVideoIndex >= 0 && fullModeVideoIndex < NUM_VIDEOS ) {
-				if ( videos[fullModeVideoIndex].fullVideo.bLoaded ) {
+				if ( videos[fullModeVideoIndex].fullVideo.isLoaded() ) {
 					videos[fullModeVideoIndex].fullVideo.stop();
 				}
 			}
 			
 			for ( int i = 0; i < NUM_VIDEOS; i++ ) {
-				if ( videos[i].thumbVideo.bLoaded ) {
+				if ( videos[i].thumbVideo.isLoaded() ) {
 					videos[i].thumbVideo.play();
 				}
 			}
@@ -279,13 +279,13 @@ void VideoController::setMode( VIDEO_MODE _mode ) {
 			
 		case VM_FULL:
 			for ( int i = 0; i < NUM_VIDEOS; i++ ) {
-				if ( videos[i].thumbVideo.bLoaded ) {
+				if ( videos[i].thumbVideo.isLoaded() ) {
 					videos[i].thumbVideo.stop();
 				}
 			}
 			
 			if ( fullModeVideoIndex >= 0 && fullModeVideoIndex < NUM_VIDEOS ) {
-				if ( videos[fullModeVideoIndex].fullVideo.bLoaded ) {
+				if ( videos[fullModeVideoIndex].fullVideo.isLoaded() ) {
 					videos[fullModeVideoIndex].fullVideo.play();
 					videos[fullModeVideoIndex].fullVideo.setPosition( 0.0f );
 				}
@@ -295,7 +295,7 @@ void VideoController::setMode( VIDEO_MODE _mode ) {
 		/*	
 		case VM_AUDIO_RECORDING:	
 			for ( int i = 0; i < NUM_VIDEOS; i++ ) {
-				if ( videos[i].thumbVideo.bLoaded ) {
+				if ( videos[i].thumbVideo.isLoaded() ) {
 					videos[i].thumbVideo.stop();
 				}
 			}
