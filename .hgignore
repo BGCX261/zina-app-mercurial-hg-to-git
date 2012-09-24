@@ -1,4 +1,6 @@
 obj
 bin/*.app
+bin/zinaApp
+bin/libs
 bin/data/stations
 bin/data/sound

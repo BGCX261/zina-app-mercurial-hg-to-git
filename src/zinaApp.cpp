@@ -91,7 +91,11 @@ void zinaApp::setup(){
 	#ifdef TARGET_WIN32  
 		newSerialId = 0; //windows
 	#endif
-	arduino.setup(newSerialId, 9600);
+	#ifndef TARGET_LINUX
+		arduino.setup(newSerialId, 9600);
+	#else
+		arduino.setup("ttyACM0", 9600);
+	#endif
 	cout << "SERIAL >>> setup device " << newSerialId << endl;
 	ofAddListener(arduino.onKeypadPressed, this, &zinaApp::onKeypadPressed);
 	ofAddListener(arduino.onHornStatus, this, &zinaApp::onHornStatus);
